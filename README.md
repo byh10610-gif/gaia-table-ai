@@ -59,6 +59,10 @@ GitHub에서 웹으로 많은 파일을 계속 관리하기 번거로우면 GitH
 
 브라우저 자동 저장은 주소별로 분리됩니다. 이전 사이트의 localStorage는 자동 이동하지 않지만 JSON 불러오기 형식과 저장 키는 유지했습니다. 개인 게임 JSON·실제 플레이 데이터·.git 이력·Sites 설정·인증 정보는 포함하지 않았습니다.
 
+## Google Analytics 사용량
+
+GA4 측정 ID `G-645X5N7K1W`로 기본 방문과 게임 시작·JSON 불러오기·최종 정산을 집계합니다. 이벤트 정의, 중복 방지, 개인정보 전송 범위와 검증 방법은 [ANALYTICS.md](ANALYTICS.md)를 참고하세요.
+
 ## 개발 검증 (선택)
 
 배포에는 Node/Python이 필요하지 않습니다. 개발자가 회귀 검사를 실행할 때만 Node.js가 필요합니다. 외부 npm 패키지는 쓰지 않습니다.
@@ -67,6 +71,7 @@ GitHub에서 웹으로 많은 파일을 계속 관리하기 번거로우면 GitH
 node tests/status-icons.cjs
 node tests/table-flow.cjs
 node tests/action-context.cjs
+node tests/analytics.cjs
 ```
 
 `scripts/extract-game-icons.py`와 `extract-building-icons.py`는 선택적 재추출 도구입니다. Python 및 PyMuPDF(`pip install pymupdf`)와 사용자가 별도로 확보한 원본 규칙서 PDF가 필요합니다. 이미 추출된 이미지가 모두 포함돼 있으므로 배포 시 실행할 필요가 없습니다. rules PDF는 포함하지 않았습니다.

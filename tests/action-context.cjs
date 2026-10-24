@@ -16,7 +16,7 @@ const entry=placed.actionLog.find(x=>x.uiVisual?.type==='tinkering_special_actio
 assert(vm.runInContext(`!E.getLegalActions({state,playerId:'a'}).some(a=>a.type==='tinkering_special_action')`,ctx));
 console.log('PASS: 건설·특수 양쪽 팅커링 노출, 동일 목적지 묶음, 실제 실행·비용·라운드 1회 소비');
 // Keep browser fixtures from actual rules-resolved actions.
-fs.writeFileSync('/tmp/gaia-action-initial.json',initial);
+fs.writeFileSync(require('node:path').join(require('node:os').tmpdir(),'gaia-action-initial.json'),initial);
 vm.runInContext(`while(state.pendingEffects.length){const e=state.pendingEffects[0];if(e.type!=='passive_charge_choice')break;resolveEffect(e,{accept:true},true);}state.round.currentPlayerId='a';const upgrade=E.getLegalActions({state,playerId:'a'}).find(a=>a.type==='upgrade_structure'&&a.toStructure==='trading_station');if(!upgrade)throw Error('missing upgrade fixture');apply(upgrade);while(state.pendingEffects.length){const e=state.pendingEffects[0];if(e.type!=='passive_charge_choice')break;resolveEffect(e,{accept:true},true);}state.round.currentPlayerId='a';const research=E.getLegalActions({state,playerId:'a'}).find(a=>a.type==='research_progress'&&a.researchArea==='terraforming');if(!research)throw Error('missing research fixture');apply(research);view='log';render();`,ctx);
 assert(ids.error.hidden,ids.error.textContent);
 const current=ctx.window.gaiaTest.state;
@@ -24,7 +24,7 @@ const upgrade=current.actionLog.find(x=>x.uiStructureChanges?.some(t=>t.from==='
 const research=current.actionLog.find(x=>x.uiVisual?.type==='research_progress');assert(research);assert.equal(research.statusAfter.researchLevels.terraforming,research.uiStatusBefore.researchLevels.terraforming+1);
 const passive=current.actionLog.find(x=>x.uiPassiveCharge?.vpPaid>0);assert(passive,'passive charge cost absent');assert.equal(passive.uiStatusBefore.resources.vp-passive.statusAfter.resources.vp,passive.uiPassiveCharge.vpPaid);
 const html=vm.runInContext(`tableLogChangeHTML(state.actionLog.find(x=>x.uiPassiveCharge?.vpPaid>0),{},state.players[1])`,ctx);assert(html.includes('충전'));assert(html.includes('점'));
-fs.writeFileSync('/tmp/gaia-action-log.json',JSON.stringify(current));
+fs.writeFileSync(require('node:path').join(require('node:os').tmpdir(),'gaia-action-log.json'),JSON.stringify(current));
 console.log('PASS: 광산→교역소 건물 전후, 연구 단계 상승, 실제 패시브 충전·승점 감소 및 기록');
 ids.undo.click();assert(ids.error.hidden);assert.equal(ctx.window.gaiaTest.state.players[0].researchLevels.terraforming,research.uiStatusBefore.researchLevels.terraforming);
 console.log('PASS: 기록 확장 후 되돌리기');
@@ -41,7 +41,7 @@ const pendingBefore=JSON.stringify(ctx.window.gaiaTest.state);vm.runInContext(`s
 assert.equal(JSON.stringify(ctx.window.gaiaTest.state),pendingBefore);assert(ids.panel.children.some(e=>e.tag==='button'&&e.textContent==='행성 선택 해제'));assert(!ids.panel.children.some(e=>e.tag==='button'&&e.textContent?.includes('없이 계속')));
 ids.panel.children.find(e=>e.tag==='button'&&e.textContent==='행성 선택 해제').click();
 const pendingList=ids.panel.children.find(e=>e.className==='pendingChoiceList');assert(pendingList);assert(pendingList.children[0].children.some(e=>e.tag==='button'));
-fs.writeFileSync('/tmp/gaia-followup-qa.json',JSON.stringify(ctx.window.gaiaTest.state));
+fs.writeFileSync(require('node:path').join(require('node:os').tmpdir(),'gaia-followup-qa.json'),JSON.stringify(ctx.window.gaiaTest.state));
 const beforeOre=ctx.window.gaiaTest.state.players[0].resources.ore;
 pendingList.children[0].children.find(e=>e.tag==='button').click();assert(ids.error.hidden,ids.error.textContent);assert(!ctx.window.gaiaTest.state.pendingEffects.some(e=>e.id==='followup-qa'));assert(ctx.window.gaiaTest.state.players[0].resources.ore<beforeOre);
 vm.runInContext(`state=JSON.parse(${JSON.stringify(initial)});state.players[0].resources.ore=0;state.players[0].resources.credits=0;state.pendingEffects=[{id:'empty-followup',playerId:'a',type:'ship_free_mine_terraform_1'}];state.uiFinishTurn='a';selectedHex=null;view='play';render()`,ctx);
@@ -52,7 +52,7 @@ vm.runInContext(`state=JSON.parse(${JSON.stringify(initial)});state.pendingEffec
 assert.equal(ids.actionList.className,'boosterActionList');assert.equal(ids.actionList.children.length,3);
 for(const b of ids.actionList.children){assert.equal(b.className,'boosterChoice');assert(/<(img|svg)/.test(b.innerHTML));assert(b.innerHTML.includes('이 부스터 선택'));assert(!b.innerHTML.includes('일반 행동'));}
 assert.equal(vm.runInContext('new Set(choices.map(tableActionKey)).size',ctx),3);
-fs.writeFileSync('/tmp/gaia-booster-qa.json',JSON.stringify(ctx.window.gaiaTest.state));
+fs.writeFileSync(require('node:path').join(require('node:os').tmpdir(),'gaia-booster-qa.json'),JSON.stringify(ctx.window.gaiaTest.state));
 ids.actionList.children[1].click();assert(ids.error.hidden,ids.error.textContent);assert.equal(ctx.window.gaiaTest.state.players[0].roundBoosterId,'booster4');assert(!ctx.window.gaiaTest.state.globalBoards.availableBoosterIds.includes('booster4'));assert.equal(ctx.window.gaiaTest.state.round.currentPlayerId,'b');
 vm.runInContext(`state=JSON.parse(${JSON.stringify(initial)});state.pendingEffects=[];state.players[0].roundBoosterId='booster2';state.globalBoards.availableBoosterIds=['booster1','booster4'];state.round.currentPlayerId='a';humanMenuContext='';view='play';render();humanCategory='pass';renderActionList()`,ctx);
 assert.equal(ids.actionList.children.length,2);assert(ids.actionList.children.every(b=>b.innerHTML.includes('이 부스터로 교체하고 패스')));ids.actionList.children[1].click();assert(ids.error.hidden,ids.error.textContent);assert.equal(ctx.window.gaiaTest.state.players[0].roundBoosterId,'booster4');assert(ctx.window.gaiaTest.state.players[0].passed);assert(ctx.window.gaiaTest.state.globalBoards.availableBoosterIds.includes('booster2'));
@@ -65,7 +65,7 @@ stationCard.children.find(e=>e.tag==='button'&&e.className.includes('stationBegi
 const allowed=vm.runInContext('tableStationTargets()',ctx);assert(allowed.length>=2);assert(allowed.every(t=>ctx.window.gaiaTest.state.map.hexes.find(h=>h.q===t.q&&h.r===t.r).content==='empty'));
 const mapHtml=ids.map.innerHTML;assert(!mapHtml.includes('stationTargetBox'));assert.equal((mapHtml.match(/data-hex=/g)||[]).length,ctx.window.gaiaTest.state.map.hexes.length);
 assert(!ids.actionList.children[0].children.some(e=>e.tag==='button'&&e.className.includes('stationInstall')));
-fs.writeFileSync('/tmp/gaia-ivits-picker.json',JSON.stringify(ctx.window.gaiaTest.state));
+fs.writeFileSync(require('node:path').join(require('node:os').tmpdir(),'gaia-ivits-picker.json'),JSON.stringify(ctx.window.gaiaTest.state));
 vm.runInContext('selectedHex=3;render()',ctx);stationCard=ids.actionList.children.find(e=>e.className==='actionOption stationPlacement');assert(!stationCard.children.some(e=>e.tag==='button'&&e.className.includes('stationInstall')));
 const target=allowed.at(-1),hexIndex=ctx.window.gaiaTest.state.map.hexes.findIndex(h=>h.q===target.q&&h.r===target.r);vm.runInContext(`selectedHex=${hexIndex};render()`,ctx);stationCard=ids.actionList.children.find(e=>e.className==='actionOption stationPlacement');const install=stationCard.children.find(e=>e.tag==='button'&&e.className.includes('stationInstall'));assert(install);
 const qicBefore=ctx.window.gaiaTest.state.players[0].resources.qic;const realCost=vm.runInContext(`choices.find(a=>tableIsStationAction(a)&&a.target.q===${target.q}&&a.target.r===${target.r}).cost.qic`,ctx);install.click();assert(ids.error.hidden,ids.error.textContent);
@@ -85,7 +85,7 @@ vm.runInContext(`state=JSON.parse(${JSON.stringify(nevlasBase)});const common3=E
 vm.runInContext(`state=JSON.parse(${JSON.stringify(nevlasBase)});const toGaia=E.getLegalFreeActions({state,playerId:'a'}).find(a=>a.freeActionId==='nevlas_power_to_gaia_knowledge');apply(toGaia,true)`,ctx);assert.equal(ctx.window.gaiaTest.state.players[0].power.gaia,1);assert.equal(ctx.window.gaiaTest.state.players[0].resources.knowledge,3);
 vm.runInContext(`state=JSON.parse(${JSON.stringify(nevlasBase)});state.players[0].structuresOnMap[0].structure='mine';`,ctx);assert.equal(vm.runInContext(`require('power_spend').availableSpendPower(state.players[0])`,ctx),3);assert(vm.runInContext(`!E.getLegalFreeActions({state,playerId:'a'}).some(a=>a.freeActionId.startsWith('nevlas_power_to_two')||a.freeActionId==='nevlas_power_to_ore_credit')`,ctx));
 vm.runInContext(`state=JSON.parse(${JSON.stringify(nevlasBase)});humanMenuContext='';view='play';render();humanCategory='free';renderActionList()`,ctx);const doubled=vm.runInContext(`tableCostHTML({power:4},state.players[0])`,ctx);assert(doubled.includes('<b>2</b>'));assert(doubled.includes('4파워'));
-fs.writeFileSync('/tmp/gaia-nevlas-qa.json',JSON.stringify(ctx.window.gaiaTest.state));
+fs.writeFileSync(require('node:path').join(require('node:os').tmpdir(),'gaia-nevlas-qa.json'),JSON.stringify(ctx.window.gaiaTest.state));
 console.log('PASS: 네블라 의회 전후·공용4파워=2토큰·자유4파워=2토큰·홀수 자유행동 합산 3종·공용 홀수 낭비·가이아 전환 1토큰·표시 토큰 수');
 // Supply copies render once per type, while clicks consume exactly one real token.
 vm.runInContext(`state=JSON.parse(${JSON.stringify(nevlasBase)});state.globalBoards.ships=[];state.pendingEffects=[{id:'federation-qa',type:'choose_federation_token',playerId:'a'}];selectedHex=null;view='play';render()`,ctx);
@@ -95,7 +95,7 @@ assert([...counts.values()].some(n=>n>1),'fixture must include duplicate supply 
 let fedList=ids.panel.children.find(e=>e.className==='pendingChoiceList federationChoiceList');assert(fedList);assert.equal(fedList.children.length,counts.size);
 const firstId=fedChoices[0].tokenId,oldPool=ctx.window.gaiaTest.state.globalBoards.federationTokenPool.length,oldOwned=ctx.window.gaiaTest.state.players[0].federationTokens.length;
 assert(fedList.children[0].innerHTML.includes('남은 '+counts.get(firstId)+'개'));assert.equal((fedList.children[0].innerHTML.match(/선택/g)||[]).length,1);
-fs.writeFileSync('/tmp/gaia-fed-qa.json',JSON.stringify(ctx.window.gaiaTest.state));
+fs.writeFileSync(require('node:path').join(require('node:os').tmpdir(),'gaia-fed-qa.json'),JSON.stringify(ctx.window.gaiaTest.state));
 fedList.children[0].click();assert(ids.error.hidden,ids.error.textContent);assert.equal(ctx.window.gaiaTest.state.globalBoards.federationTokenPool.length,oldPool-1);assert.equal(ctx.window.gaiaTest.state.players[0].federationTokens.length,oldOwned+1);
 vm.runInContext(`state.players[0].federationTokens=[{id:${JSON.stringify(firstId)},side:'green'},{id:${JSON.stringify(firstId)},side:'grey'}];state.pendingEffects=[{id:'rescore-qa',type:'rescore_federation_token',playerId:'a'}];render()`,ctx);
 fedList=ids.panel.children.find(e=>e.className==='pendingChoiceList federationChoiceList');assert.equal(fedList.children.length,1);assert(fedList.children[0].innerHTML.includes('보유 2개'));
@@ -148,7 +148,7 @@ ids.fix_power_bowl2.value='4';ids.panel.children.find(e=>e.children?.some(b=>b.t
 vm.runInContext(`view='play';render()`,ctx);
 const refreshed=vm.runInContext(`require('passive_charge').currentPassiveChargeOffer(state,state.pendingEffects[0])`,ctx);assert.equal(refreshed.offeredPower,3);assert.equal(refreshed.maxCharge,3);assert.equal(refreshed.vpCost,2);assert.equal(refreshed.structure.structure,'planetary_institute');
 const passiveCard=ids.panel.children.find(e=>e.className==='passiveChargeSummary');assert(passiveCard);assert(passiveCard.innerHTML.includes('파워 3 충전'));assert(passiveCard.innerHTML.includes('승점 2점'));assert(passiveCard.innerHTML.includes('행성 의회'));assert(!passiveCard.innerHTML.includes('src="./assets/'));
-fs.writeFileSync('/tmp/gaia-passive-current.json',JSON.stringify(ctx.window.gaiaTest.state));
+fs.writeFileSync(require('node:path').join(require('node:os').tmpdir(),'gaia-passive-current.json'),JSON.stringify(ctx.window.gaiaTest.state));
 ids.panel.children.find(e=>e.textContent==='충전 수락').click();assert(ids.error.hidden,ids.error.textContent);assert.equal(ctx.window.gaiaTest.state.players[0].resources.vp,8);assert.equal(ctx.window.gaiaTest.state.players[0].power.bowl3,3);assert.equal(ctx.window.gaiaTest.state.players[0].power.bowl2,1);
 const acceptedCharge=ctx.window.gaiaTest.state.actionLog.findLast(x=>x.actionType==='passive_charge_resolved');assert.equal(acceptedCharge.charged,3);assert.equal(acceptedCharge.vpPaid,2);
 vm.runInContext(`state.players[0].power={bowl1:0,bowl2:2,bowl3:4,gaia:0,brainstone:null}`,ctx);
@@ -161,7 +161,7 @@ const shipName=vm.runInContext(`ko(${JSON.stringify(finalShipId(namedExplore))})
 function finalShipId(a){return a.subAction?finalShipId(a.subAction):a.shipId??a.target?.shipId;}
 assert(vm.runInContext(`placeName(state.map.hexes[selectedHex])`,ctx).includes(shipName));assert(vm.runInContext(`actionTitle(${JSON.stringify(namedExplore)})`,ctx).includes(shipName));assert(vm.runInContext(`compactAiTitle(${JSON.stringify(namedExplore)})`,ctx).includes(shipName));
 assert(ids.actionList.children.some(e=>e.children?.some(h=>h.innerHTML?.includes(shipName+' 탐사'))));
-fs.writeFileSync('/tmp/gaia-explore-names.json',JSON.stringify(ctx.window.gaiaTest.state));
+fs.writeFileSync(require('node:path').join(require('node:os').tmpdir(),'gaia-explore-names.json'),JSON.stringify(ctx.window.gaiaTest.state));
 console.log('PASS: 보정 후 대기 충전 갱신·최고 의회3/승점2·실제 3충전/2점 차감·충전 용량/승점 제한·내장 원본 아이콘·사람/AI/지도/기록 함선 이름');
 // Federation: cash out only bowl III tokens that would otherwise be discarded.
 vm.runInContext(`{state=JSON.parse(${JSON.stringify(nevlasBase)});state.round.number=3;state.players[0].factionId='terrans';state.players[0].isAi=true;state.pendingEffects=[];state.actionLog=[];state.map.hexes=Array.from({length:7},(_,q)=>({q,r:0,content:q===0?'terra':q===3?'ice':q===6?'swamp':'empty',sectorId:'01',...(q===0?{occupiedBy:'a',structure:'planetary_institute'}:q===3?{occupiedBy:'a',structure:'academy'}:q===6?{occupiedBy:'a',structure:'mine'}:{})}));state.map.sectors=[];state.map.deepSpaceSectors=[];state.map.shipHexes=[];state.map.satellites=[];const p=state.players[0];p.structuresOnMap=[{q:0,r:0,structure:'planetary_institute',planet:'terra'},{q:3,r:0,structure:'academy',planet:'ice'},{q:6,r:0,structure:'mine',planet:'swamp'}];p.power={bowl1:0,bowl2:0,bowl3:5,gaia:0,brainstone:null};p.resources={credits:5,ore:4,knowledge:2,qic:0,vp:10};p.federations=[];p.federationTokens=[];p.standardTechs=[];p.factionSpecific={};}`,ctx);
@@ -174,7 +174,7 @@ vm.runInContext(`state=JSON.parse(${JSON.stringify(fedState)});Object.assign(sta
 // Common board has one button per slot; terraform destinations are listed only under construction.
 vm.runInContext(`state=JSON.parse(${JSON.stringify(initial)});state.players[0].power={bowl1:0,bowl2:0,bowl3:12,gaia:0,brainstone:null};state.pendingEffects=[];state.players[0].factionSpecific.tinkering.actionUsedRound=null;selectedHex=null;humanMenuContext='';tableCommonBuildSpace=null;view='play';render();humanCategory='common';renderActionList()`,ctx);
 const boardDefs=vm.runInContext(`require('legal_actions').commonActionDefinitions(state)`,ctx);assert.equal(ids.actionList.className,'commonBoard');assert.equal(ids.actionList.children.length,boardDefs.length);assert.equal(boardDefs.length,7);assert(!ids.actionList.children.some(e=>e.className==='actionOption'));
-fs.writeFileSync('/tmp/gaia-common-board.json',JSON.stringify(ctx.window.gaiaTest.state));
+fs.writeFileSync(require('node:path').join(require('node:os').tmpdir(),'gaia-common-board.json'),JSON.stringify(ctx.window.gaiaTest.state));
 const terraformSlot=ids.actionList.children.find(e=>e.innerHTML.includes('테라포밍 1단계'));assert(terraformSlot&&!terraformSlot.disabled);const commonBefore=JSON.stringify(ctx.window.gaiaTest.state);terraformSlot.click();assert.equal(JSON.stringify(ctx.window.gaiaTest.state),commonBefore);assert.equal(vm.runInContext('humanCategory',ctx),'build');assert.equal(vm.runInContext('tableCommonBuildSpace',ctx),'power_3_terraform1');assert(ids.actionList.children.some(e=>e.className==='commonBuildNotice'));assert(vm.runInContext(`choices.filter(a=>a.actionSpaceId==='power_3_terraform1').length>1`,ctx));
 console.log('PASS: 연방 전 버릴 III토큰만 자원 교환·4위성/잔여III1 유지·불필요한 교환/자원 넘침 제외·공용7칸·테라포밍은 건설로 이동·선택만으로 비용 미소모');
 // Right-hand academy provides a universal once-per-round QIC special action.
@@ -183,7 +183,7 @@ const academyBase=JSON.stringify(ctx.window.gaiaTest.state);
 const academyAction=vm.runInContext(`E.getLegalActions({state,playerId:'a'}).filter(a=>a.componentActionId==='academy_qic')`,ctx);assert.equal(academyAction.length,1);
 assert(vm.runInContext(`playerBonuses(state.players[0])`,ctx).includes('아카데미 · 정보 큐브 1'));assert(vm.runInContext(`playerBonuses(state.players[0])`,ctx).includes('미사용'));
 const academyCard=ids.actionList.children.find(c=>c.children?.some(e=>e.innerHTML?.includes('아카데미 특수행동')));assert(academyCard);assert(academyCard.children.some(e=>e.innerHTML?.includes('originalBuilding')));
-fs.writeFileSync('/tmp/gaia-academy-qic.json',academyBase);
+fs.writeFileSync(require('node:path').join(require('node:os').tmpdir(),'gaia-academy-qic.json'),academyBase);
 const qicBeforeAcademy=ctx.window.gaiaTest.state.players[0].resources.qic;academyCard.children.find(e=>e.tag==='button').click();assert(ids.error.hidden,ids.error.textContent);assert.equal(ctx.window.gaiaTest.state.players[0].resources.qic,qicBeforeAcademy+1);assert.equal(ctx.window.gaiaTest.state.round.currentPlayerId,'b');
 assert(!vm.runInContext(`E.getLegalActions({state,playerId:'a'}).some(a=>a.componentActionId==='academy_qic')`,ctx));assert(vm.runInContext(`playerBonuses(state.players[0])`,ctx).includes('사용 완료'));
 vm.runInContext(`state.round.number++;state.round.currentPlayerId='a'`,ctx);assert(vm.runInContext(`E.getLegalActions({state,playerId:'a'}).some(a=>a.componentActionId==='academy_qic')`,ctx));
@@ -214,5 +214,5 @@ const tiedGoal=vm.runInContext(`tableFinalGoalFormula({entries:[{playerId:'a',me
 vm.runInContext(`{const rows=tableFinalScoreData().rows;state.players.find(p=>p.id===rows[1].playerId).resources.vp=rows[0].total;render();}`,ctx);assert(ids.panel.children.find(e=>e.className==='finalResults').innerHTML.includes('공동 우승'));
 // Legacy results without resource component snapshots still reconcile without inventing counts.
 vm.runInContext(`state=JSON.parse(${JSON.stringify(finalBase)});delete state.finalScoringResult;tableScorePlayerId=null;render()`,ctx);for(const r of vm.runInContext('tableFinalScoreData().rows',ctx))assert.equal(r.total,r.currentVp+r.finalBonusVp);
-fs.writeFileSync('/tmp/gaia-final-score-qa.json',finalBase);
+fs.writeFileSync(require('node:path').join(require('node:os').tmpdir(),'gaia-final-score-qa.json'),finalBase);
 console.log('PASS: 종료 전용 결과·우승/공동 우승·3인 계산식 합계·목표2개/연구6개·자원 버림·공동순위 배분식·플레이어 전환 무변경·기존 완료게임 중복가산 없음');
