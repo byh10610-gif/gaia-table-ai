@@ -1,0 +1,13 @@
+{
+  "source": "assets/tiles/tinkering-photo-20261023.jpg",
+  "width": 865,
+  "height": 1536,
+  "tiles": {
+    "tinkering_early_power": {"viewBox":"20 194 403 354", "clipPath":"M25 199 L240 198 Q409 205 420 352 L419 435 L333 530 Q322 542 293 545 L28 545 Z"},
+    "tinkering_early_mine": {"viewBox":"421 184 391 350", "clipPath":"M431 188 L627 190 Q790 193 805 345 L805 420 L719 520 Q708 532 689 531 L428 529 Z"},
+    "tinkering_late_qic": {"viewBox":"36 548 405 357", "clipPath":"M40 552 L251 551 Q425 560 436 718 L435 794 L350 890 Q338 902 314 901 L44 901 Z"},
+    "tinkering_late_mine": {"viewBox":"439 534 374 351", "clipPath":"M447 539 L647 539 Q797 545 807 697 L807 771 L720 871 Q708 881 688 880 L445 878 Z"},
+    "tinkering_late_knowledge": {"viewBox":"51 910 399 344", "clipPath":"M57 915 L260 915 Q426 926 444 1074 L446 1144 L350 1241 Q340 1250 316 1249 L59 1249 Z"},
+    "tinkering_early_qic": {"viewBox":"447 883 378 342", "clipPath":"M454 890 L651 889 Q805 901 819 1046 L818 1115 L723 1212 Q712 1222 689 1221 L452 1221 Z"}
+  }
+}

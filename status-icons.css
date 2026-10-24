@@ -1,0 +1,45 @@
+/* Real component illustrations, persistent Korean labels, large readable counts. */
+.originalGameIcon{object-fit:contain;flex:none;filter:drop-shadow(0 1px 1px #0005)}
+.gameResourceStrip{display:grid!important;grid-template-columns:repeat(5,minmax(0,1fr));gap:5px!important;margin:10px 0 12px}
+.gameMetric{display:grid!important;grid-template-columns:22px minmax(0,1fr);align-items:center;justify-content:start;gap:3px;padding:7px 4px!important;min-width:0;background:#ffffff08;border:1px solid #ffffff12;border-radius:9px}
+.gameResourceStrip .metricIcon{width:22px;height:24px}
+.gameResourceStrip .gameMetric{grid-template-columns:minmax(0,1fr)!important;justify-items:center;gap:2px;padding:7px 2px!important}
+.gameResourceStrip .metricValue{min-width:0;font-size:22px;white-space:nowrap}
+.gameResourceStrip .metricLabel{width:100%;min-height:14px;letter-spacing:-.3px;overflow-wrap:normal}
+.gameMetric .metricValue{font-size:21px;line-height:1.15;color:#fff;text-align:center;font-variant-numeric:tabular-nums}
+.gameMetric .metricLabel{grid-column:1/-1;font-size:10px;line-height:1.4;text-align:center;color:#e9dfe7;white-space:normal}
+.gameResearchStrip{display:grid!important;grid-template-columns:repeat(3,minmax(0,1fr));gap:6px!important;margin-top:11px}
+.researchMetric{grid-template-columns:30px minmax(0,1fr);padding:7px!important}
+.researchMetric .metricIcon{width:30px;height:31px}
+.researchMetric .metricValue{font-size:21px!important}
+.metricValue small{font-size:10px;font-weight:500;margin-left:2px;color:#d2c3d0}
+.researchMetric .metricLabel{font-size:10px}
+.researchSteps{grid-column:1/-1;display:flex;gap:3px;margin-top:2px}
+.researchSteps i{height:3px;flex:1;border-radius:2px;background:#ffffff19}
+.researchSteps .reached{background:var(--metric-color)}
+.powerBoardHeading{display:flex;justify-content:space-between;align-items:center;margin:3px 0 5px;font-size:11px;font-weight:700;color:#e9dfe7}
+.powerBoardHeading small{font-size:10px;font-weight:400;color:#c9afc5}
+.powerBoard{display:grid;grid-template-columns:.88fr 1fr .88fr;grid-template-rows:1fr 1fr;gap:5px;min-height:114px;padding:6px;border:1px solid #80576f;border-radius:15px;background:#17121c}
+.powerArea{display:flex;align-items:center;justify-content:center;flex-direction:column;position:relative;gap:2px;padding:5px 3px;border:1px solid #ffffff1c;border-radius:14px;text-align:center;min-width:0}
+.area-gaia{grid-column:1;grid-row:1/span 2;background:linear-gradient(140deg,#184e37,#183328);border-color:#56876c}
+.area-bowl2{grid-column:2;grid-row:1;background:linear-gradient(110deg,#651b70,#722768);border-radius:18px 18px 25px 25px}
+.area-bowl1{grid-column:2;grid-row:2;background:linear-gradient(110deg,#28172d,#35203b);border-radius:25px 25px 18px 18px}
+.area-bowl3{grid-column:3;grid-row:1/span 2;background:linear-gradient(140deg,#992a76,#652058);border-color:#bb649c}
+.powerAreaLabel{font-size:10px;color:#f4e9f0}
+.powerArea strong{font-size:23px;line-height:1;color:#fff;font-variant-numeric:tabular-nums}
+.powerArea strong small{font-size:9px;font-weight:500;margin-left:2px}
+.powerTokenRow{display:flex;justify-content:center;align-items:center;flex-wrap:wrap;gap:1px;min-height:13px;max-width:80px}
+.powerTokenRow img{object-fit:contain}
+.powerTokenRow span{font-size:12px;color:#fff}
+.brainstoneBadge{font-size:9px;background:#d3b782;color:#241b14;border-radius:7px;padding:2px 5px;white-space:nowrap}
+.powerIconBadge{display:inline-flex;align-items:center;position:relative;vertical-align:middle}
+.powerIconBadge span{position:absolute;right:-3px;bottom:-2px;background:#28132d;color:#fff;font-size:9px;border-radius:4px;padding:0 2px}
+.deltaMetric .originalGameIcon{width:25px;height:25px}
+.logStatus .gameResourceStrip{gap:3px!important;margin:5px 0}
+.logStatus .gameMetric{padding:4px 2px!important;grid-template-columns:18px minmax(0,1fr)}
+.logStatus .gameMetric .metricIcon{width:18px;height:20px}
+.logStatus .gameMetric .metricValue{font-size:17px}
+.logStatus .gameResourceStrip .gameMetric{grid-template-columns:minmax(0,1fr)!important;padding:4px 2px!important}
+.logStatus .powerBoard{min-height:90px}
+.logStatus .powerArea strong{font-size:18px}
+@media(max-width:380px){.gameResourceStrip{gap:3px!important}.gameMetric{padding:6px 3px!important;grid-template-columns:20px minmax(0,1fr)}.gameResourceStrip .metricIcon{width:20px}.gameMetric .metricValue{font-size:19px}.researchMetric{grid-template-columns:27px minmax(0,1fr)}.researchMetric .metricIcon{width:27px}.gameMetric .metricLabel{font-size:9px}}
