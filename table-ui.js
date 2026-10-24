@@ -63,11 +63,11 @@ function tableThreeStepNotice(p){
  $('panel').append(d);
 }
 function tableReplacePlanetText(root){
- if(!root)return;
+ if(!root||view==='overview')return;
  const types=Object.keys(tablePlanetNames).filter(t=>t!=='gaia'),names=new Map(types.map(t=>[ko(t),t]));
  const pattern=new RegExp('('+[...names.keys()].sort((a,b)=>b.length-a.length).join('|')+')(?: 행성)?(?=$|[ ·,/:)])','g');
  const walker=document.createTreeWalker(root,4),nodes=[];let n;
- while(n=walker.nextNode())if(!n.parentElement.closest('svg,button.actionCategory,select,option,input,textarea,.planetChip,.panelTitle,.logActor,.factionName'))nodes.push(n);
+ while(n=walker.nextNode())if(!n.parentElement.closest('svg,button.actionCategory,select,option,input,textarea,.planetChip,.panelTitle,.logActor,.factionName,.componentTile p,[data-plain-text]'))nodes.push(n);
  for(const node of nodes){const text=node.nodeValue;pattern.lastIndex=0;if(!pattern.test(text))continue;pattern.lastIndex=0;const span=document.createElement('span');span.className='planetText';let at=0;span.innerHTML=[...text.matchAll(pattern)].map(m=>{const x=esc(text.slice(at,m.index))+tablePlanet(names.get(m[1]));at=m.index+m[0].length;return x}).join('')+esc(text.slice(at));node.replaceWith(span);}
 }
 function tableRenderLog(){
@@ -115,6 +115,73 @@ function tableBuilding(kind,p){
  const actual=['mine','trading_station','research_lab','academy','planetary_institute','gaiaformer'].includes(kind);
  return `<span class="buildingPicture">${actual?tableBuildingArtwork(kind,p):`<svg viewBox="-24 -31 48 53" role="img" aria-label="${esc(ko(kind))}">${pieceMarker(p,kind,0,0,{compact:false})}</svg>`}<small>${esc(ko(kind))}</small></span>`;
 }
+function tableActionArtwork(action,p,effect=null){
+ const a=finalAction(action),target=a.target;
+ if(a.factionActionId==='ambas_swap_pi_mine')return tableBuilding('planetary_institute',p)+'<span class="buildingArrow">↔</span>'+tableBuilding('mine',p);
+ const kind=a.toStructure??(a.factionActionId==='ivits_space_station'?'space_station':a.factionActionId==='firaks_downgrade_research'?'trading_station':a.componentActionId==='academy_qic'?'academy':['build_mine','place_initial_structure'].includes(a.type)?a.structure??'mine':['gaia_project','start_gaia_project','instant_gaia_project'].includes(a.type)?'gaiaformer':effect?.type==='place_lost_planet'?'mine':null);
+ if(!kind)return a.type==='research_progress'?metricIcon(a.researchArea):'';
+ const replacing=a.type==='upgrade_structure'||a.factionActionId==='firaks_downgrade_research';
+ const from=replacing?(a.fromStructure??p?.structuresOnMap?.find(t=>t.q===target?.q&&t.r===target?.r)?.structure??(a.factionActionId==='firaks_downgrade_research'?'research_lab':'mine')):null;
+ return (from?tableBuilding(from,p)+'<span class="buildingArrow">→</span>':'')+tableBuilding(kind,p);
+}
+function tableAiBuildingHTML(action,p,effect=null){
+ const art=tableActionArtwork(action,p,effect);
+ if(!art.includes('buildingPicture'))return '';
+ return '<div class="aiBuildingGuide" aria-label="실물에서 사용할 건물">'+art+'</div>';
+}
+function tableAppendAiBuilding(parent,action,p,effect=null){
+ const html=tableAiBuildingHTML(action,p,effect);if(!html)return;
+ const guide=document.createElement('div');guide.innerHTML=html;parent.append(guide);
+}
+// Preview each repetition through the actual engine: resource caps, brainstone,
+// Nevlas rounding and faction-specific power burning follow existing rules.
+function tableFreeActionRuns(action,source=state){
+ const game=structuredClone(source),runs=[];
+ if(game.pendingEffects.length||game.round.currentPlayerId!==action.playerId)return runs;
+ for(let i=0;i<1000;i++){
+  const legal=E.getLegalFreeActions({state:game,playerId:action.playerId}).find(a=>a.freeActionId===action.freeActionId);if(!legal)break;
+  const p=game.players.find(p=>p.id===action.playerId),before=E.snapshotPlayerStatus(p);
+  try{E.applyFreeAction(game,legal)}catch{break;}
+  const after=E.snapshotPlayerStatus(p);
+  const benefit=['credits','ore','knowledge','qic'].some(k=>after.resources[k]>before.resources[k])||['bowl1','bowl3','gaia'].some(k=>after.power[k]>before.power[k])||before.power.brainstone!==after.power.brainstone;
+  if(!benefit)break;
+  runs.push(after);
+ }
+ return runs;
+}
+function tableFreeBatchSummary(before,after){
+ const parts=[];
+ for(const key of ['credits','ore','knowledge','qic']){const delta=(after.resources[key]??0)-(before.resources[key]??0);if(delta)parts.push(ko(key)+' '+(delta>0?'+':'')+delta);}
+ for(const [key,label]of [['bowl1','Ⅰ그릇'],['bowl2','Ⅱ그릇'],['bowl3','Ⅲ그릇'],['gaia','가이아 구역']])if((before.power[key]??0)!==(after.power[key]??0))parts.push(label+' '+(before.power[key]??0)+' → '+(after.power[key]??0));
+ if(before.power.brainstone!==after.power.brainstone)parts.push('두뇌석 '+ko(before.power.brainstone??'없음')+' → '+ko(after.power.brainstone??'없음'));
+ const oldTokens=['bowl1','bowl2','bowl3','gaia'].reduce((n,k)=>n+(before.power[k]??0),0),newTokens=['bowl1','bowl2','bowl3','gaia'].reduce((n,k)=>n+(after.power[k]??0),0);
+ if(newTokens<oldTokens)parts.push('파워 토큰 '+(oldTokens-newTokens)+'개 반납');
+ return parts.join(' · ');
+}
+function tableApplyFreeBatch(action,count){
+ if(!Number.isInteger(count)||count<1)throw Error('실행할 횟수를 선택하세요.');
+ transact(()=>{
+  const runs=tableFreeActionRuns(action);if(count>runs.length)throw Error('현재 자원으로 선택한 횟수를 실행할 수 없습니다. 횟수를 다시 선택하세요.');
+  const logStart=state.actionLog.length;
+  for(let i=0;i<count;i++){E.applyFreeAction(state,action);stampLastAction(action,{});}
+  const entries=state.actionLog.slice(logStart),last=entries.at(-1);
+  for(const entry of entries)if(entry!==last)entry.uiHiddenInLog=true;
+  if(last){last.uiBatchCount=count;last.displayName=action.displayName+' · '+count+'회';last.uiVisual={...structuredClone(action),displayName:last.displayName,repeatCount:count};}
+ });
+}
+function tableFreeActionControl(action){
+ const runs=tableFreeActionRuns(action),max=runs.length,p=player(action.playerId),before=E.snapshotPlayerStatus(p);
+ const box=document.createElement('div');box.className='freeBatchControl';
+ let select=null;
+ if(max>1){const label=document.createElement('label');label.className='freeBatchQuantity';label.textContent='횟수';
+  select=document.createElement('select');select.setAttribute?.('aria-label',tableActionName(action)+' 실행 횟수');
+  select.innerHTML=runs.map((_,i)=>'<option value="'+(i+1)+'">'+(i+1)+'회'+(i===max-1?' · 최대':'')+'</option>').join('');select.value='1';label.append(select);box.append(label);
+ }
+ const summary=document.createElement('p');summary.className='freeBatchSummary';summary.setAttribute?.('aria-live','polite');
+ const execute=button('',()=>tableApplyFreeBatch(action,select?Number(select.value):1),'actionRoute freeBatchExecute');execute.disabled=!max;
+ function update(){const count=select?Number(select.value):1;summary.textContent=max?tableFreeBatchSummary(before,runs[count-1]):'얻을 자원이 없거나 현재는 실행할 수 없습니다.';execute.textContent=count+'회 실행';}
+ if(select)select.onchange=update;update();box.append(summary,execute);return box;
+}
 function tableCostLabel(key){return {power:'파워',powerTokens:'파워 토큰',bowl2Tokens:'Ⅱ그릇 토큰',bowl3PowerToken:'Ⅲ그릇 토큰',gaiaformer:'가이아포머',brainstone:'두뇌석'}[key]??ko(key);}
 
 function tableCostHTML(cost,p=state?player(state.round.currentPlayerId):null){
@@ -141,8 +208,9 @@ function tableRenderActionList(){
   if(a.type==='pass'&&state.round.number<6){for(const id of state.globalBoards.availableBoosterIds)list.append(tableBoosterChoice(a,id,true));continue;}
   const card=document.createElement('article');card.className='actionOption';
   const points=actionPoints(leaf),location=points.length===1?placeName(points[0]):'',base=tableActionName(leaf);
-  const icon=leaf.componentActionId==='academy_qic'?tableBuilding('academy',p):leaf.type==='build_mine'||leaf.type==='place_initial_structure'?tableBuilding(leaf.structure??'mine',p):leaf.type==='upgrade_structure'?tableBuilding(leaf.fromStructure??p?.structuresOnMap?.find(t=>t.q===leaf.target?.q&&t.r===leaf.target?.r)?.structure??'mine',p)+'<span class="buildingArrow">→</span>'+tableBuilding(leaf.toStructure,p):leaf.type==='research_progress'?metricIcon(leaf.researchArea):'';
+  const icon=tableActionArtwork(leaf,p);
   const title=document.createElement('div');title.className='actionOptionHeading';title.innerHTML=`<div class="actionVisual">${icon}</div><div><b>${esc(base)}</b>${location?`<p>${esc(location)}</p>`:''}</div>`;card.append(title);
+  if(isFree&&a.freeActionId){card.append(tableFreeActionControl(a));list.append(card);continue;}
   for(const route of routes){
    const actual=finalAction(route),method=specialActionSummary(route)||((route.type?.endsWith('_special_action')||route.type==='faction_special_action')?actionSourceLabel(route):''),ids=componentIds(route),b=button('',()=>apply(route,isFree),'actionRoute');
    b.innerHTML=`<span class="routeName">${method?'<span class="routeTag">특수</span>':''}${esc(method?method.replace(/^특수행동 · /,''):routes.length>1?'일반 행동':'실행')}</span><span class="routeCosts">${tableCostHTML(tableActionCost(route),player(route.playerId??state.round.currentPlayerId))}</span>`;

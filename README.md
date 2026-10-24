@@ -72,6 +72,8 @@ node tests/status-icons.cjs
 node tests/table-flow.cjs
 node tests/action-context.cjs
 node tests/analytics.cjs
+node tests/play-ui.cjs
+node tests/embedded-images.cjs
 ```
 
 `scripts/extract-game-icons.py`와 `extract-building-icons.py`는 선택적 재추출 도구입니다. Python 및 PyMuPDF(`pip install pymupdf`)와 사용자가 별도로 확보한 원본 규칙서 PDF가 필요합니다. 이미 추출된 이미지가 모두 포함돼 있으므로 배포 시 실행할 필요가 없습니다. rules PDF는 포함하지 않았습니다.
