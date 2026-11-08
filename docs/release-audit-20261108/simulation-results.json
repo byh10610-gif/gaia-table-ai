@@ -1,0 +1,902 @@
+[
+  {
+    "difficulty": "쉬움",
+    "faction": "terrans",
+    "seed": 41,
+    "complete": true,
+    "seconds": 16.454,
+    "actions": 98,
+    "steps": 117,
+    "round": 6,
+    "blocked": null,
+    "scores": [
+      {
+        "factionId": "terrans",
+        "vp": 78
+      },
+      {
+        "factionId": "xenos",
+        "vp": 62
+      },
+      {
+        "factionId": "ambas",
+        "vp": 72
+      }
+    ]
+  },
+  {
+    "difficulty": "보통",
+    "faction": "terrans",
+    "seed": 83,
+    "complete": true,
+    "seconds": 46.456,
+    "actions": 90,
+    "steps": 109,
+    "round": 6,
+    "blocked": null,
+    "scores": [
+      {
+        "factionId": "terrans",
+        "vp": 110
+      },
+      {
+        "factionId": "xenos",
+        "vp": 105
+      },
+      {
+        "factionId": "ambas",
+        "vp": 111
+      }
+    ]
+  },
+  {
+    "difficulty": "쉬움",
+    "faction": "lantids",
+    "seed": 41,
+    "complete": true,
+    "seconds": 11.532,
+    "actions": 89,
+    "steps": 108,
+    "round": 6,
+    "blocked": null,
+    "scores": [
+      {
+        "factionId": "lantids",
+        "vp": 77
+      },
+      {
+        "factionId": "xenos",
+        "vp": 52
+      },
+      {
+        "factionId": "ambas",
+        "vp": 46
+      }
+    ]
+  },
+  {
+    "difficulty": "보통",
+    "faction": "lantids",
+    "seed": 83,
+    "complete": true,
+    "seconds": 38.692,
+    "actions": 101,
+    "steps": 120,
+    "round": 6,
+    "blocked": null,
+    "scores": [
+      {
+        "factionId": "lantids",
+        "vp": 76
+      },
+      {
+        "factionId": "xenos",
+        "vp": 88
+      },
+      {
+        "factionId": "ambas",
+        "vp": 119
+      }
+    ]
+  },
+  {
+    "difficulty": "쉬움",
+    "faction": "xenos",
+    "seed": 41,
+    "complete": true,
+    "seconds": 8.555,
+    "actions": 87,
+    "steps": 106,
+    "round": 6,
+    "blocked": null,
+    "scores": [
+      {
+        "factionId": "xenos",
+        "vp": 42
+      },
+      {
+        "factionId": "terrans",
+        "vp": 74
+      },
+      {
+        "factionId": "ambas",
+        "vp": 87
+      }
+    ]
+  },
+  {
+    "difficulty": "보통",
+    "faction": "xenos",
+    "seed": 83,
+    "complete": true,
+    "seconds": 46.246,
+    "actions": 86,
+    "steps": 105,
+    "round": 6,
+    "blocked": null,
+    "scores": [
+      {
+        "factionId": "xenos",
+        "vp": 109
+      },
+      {
+        "factionId": "terrans",
+        "vp": 104
+      },
+      {
+        "factionId": "ambas",
+        "vp": 98
+      }
+    ]
+  },
+  {
+    "difficulty": "쉬움",
+    "faction": "gleens",
+    "seed": 41,
+    "complete": true,
+    "seconds": 10.584,
+    "actions": 93,
+    "steps": 112,
+    "round": 6,
+    "blocked": null,
+    "scores": [
+      {
+        "factionId": "gleens",
+        "vp": 91
+      },
+      {
+        "factionId": "terrans",
+        "vp": 51
+      },
+      {
+        "factionId": "ambas",
+        "vp": 79
+      }
+    ]
+  },
+  {
+    "difficulty": "보통",
+    "faction": "gleens",
+    "seed": 83,
+    "complete": true,
+    "seconds": 27.315,
+    "actions": 98,
+    "steps": 117,
+    "round": 6,
+    "blocked": null,
+    "scores": [
+      {
+        "factionId": "gleens",
+        "vp": 123
+      },
+      {
+        "factionId": "terrans",
+        "vp": 100
+      },
+      {
+        "factionId": "ambas",
+        "vp": 97
+      }
+    ]
+  },
+  {
+    "difficulty": "쉬움",
+    "faction": "ambas",
+    "seed": 41,
+    "complete": true,
+    "seconds": 10.987,
+    "actions": 105,
+    "steps": 124,
+    "round": 6,
+    "blocked": null,
+    "scores": [
+      {
+        "factionId": "ambas",
+        "vp": 93
+      },
+      {
+        "factionId": "terrans",
+        "vp": 69
+      },
+      {
+        "factionId": "xenos",
+        "vp": 72
+      }
+    ]
+  },
+  {
+    "difficulty": "보통",
+    "faction": "ambas",
+    "seed": 83,
+    "complete": true,
+    "seconds": 45.054,
+    "actions": 84,
+    "steps": 103,
+    "round": 6,
+    "blocked": null,
+    "scores": [
+      {
+        "factionId": "ambas",
+        "vp": 110
+      },
+      {
+        "factionId": "terrans",
+        "vp": 111
+      },
+      {
+        "factionId": "xenos",
+        "vp": 108
+      }
+    ]
+  },
+  {
+    "difficulty": "쉬움",
+    "faction": "taklons",
+    "seed": 41,
+    "complete": true,
+    "seconds": 9.288,
+    "actions": 99,
+    "steps": 118,
+    "round": 6,
+    "blocked": null,
+    "scores": [
+      {
+        "factionId": "taklons",
+        "vp": 71
+      },
+      {
+        "factionId": "terrans",
+        "vp": 85
+      },
+      {
+        "factionId": "xenos",
+        "vp": 80
+      }
+    ]
+  },
+  {
+    "difficulty": "보통",
+    "faction": "taklons",
+    "seed": 83,
+    "complete": true,
+    "seconds": 24.769,
+    "actions": 79,
+    "steps": 98,
+    "round": 6,
+    "blocked": null,
+    "scores": [
+      {
+        "factionId": "taklons",
+        "vp": 72
+      },
+      {
+        "factionId": "terrans",
+        "vp": 120
+      },
+      {
+        "factionId": "xenos",
+        "vp": 109
+      }
+    ]
+  },
+  {
+    "difficulty": "쉬움",
+    "faction": "hadsch_hallas",
+    "seed": 41,
+    "complete": true,
+    "seconds": 8.369,
+    "actions": 111,
+    "steps": 130,
+    "round": 6,
+    "blocked": null,
+    "scores": [
+      {
+        "factionId": "hadsch_hallas",
+        "vp": 100
+      },
+      {
+        "factionId": "terrans",
+        "vp": 68
+      },
+      {
+        "factionId": "xenos",
+        "vp": 74
+      }
+    ]
+  },
+  {
+    "difficulty": "보통",
+    "faction": "hadsch_hallas",
+    "seed": 83,
+    "complete": true,
+    "seconds": 35.258,
+    "actions": 92,
+    "steps": 111,
+    "round": 6,
+    "blocked": null,
+    "scores": [
+      {
+        "factionId": "hadsch_hallas",
+        "vp": 104
+      },
+      {
+        "factionId": "terrans",
+        "vp": 118
+      },
+      {
+        "factionId": "xenos",
+        "vp": 113
+      }
+    ]
+  },
+  {
+    "difficulty": "쉬움",
+    "faction": "ivits",
+    "seed": 41,
+    "complete": true,
+    "seconds": 22.51,
+    "actions": 103,
+    "steps": 122,
+    "round": 6,
+    "blocked": null,
+    "scores": [
+      {
+        "factionId": "ivits",
+        "vp": 97
+      },
+      {
+        "factionId": "terrans",
+        "vp": 59
+      },
+      {
+        "factionId": "xenos",
+        "vp": 84
+      }
+    ]
+  },
+  {
+    "difficulty": "보통",
+    "faction": "ivits",
+    "seed": 83,
+    "complete": true,
+    "seconds": 93.684,
+    "actions": 107,
+    "steps": 126,
+    "round": 6,
+    "blocked": null,
+    "scores": [
+      {
+        "factionId": "ivits",
+        "vp": 122
+      },
+      {
+        "factionId": "terrans",
+        "vp": 108
+      },
+      {
+        "factionId": "xenos",
+        "vp": 97
+      }
+    ]
+  },
+  {
+    "difficulty": "쉬움",
+    "faction": "geodens",
+    "seed": 41,
+    "complete": true,
+    "seconds": 6.429,
+    "actions": 96,
+    "steps": 115,
+    "round": 6,
+    "blocked": null,
+    "scores": [
+      {
+        "factionId": "geodens",
+        "vp": 82
+      },
+      {
+        "factionId": "terrans",
+        "vp": 66
+      },
+      {
+        "factionId": "xenos",
+        "vp": 94
+      }
+    ]
+  },
+  {
+    "difficulty": "보통",
+    "faction": "geodens",
+    "seed": 83,
+    "complete": true,
+    "seconds": 36.628,
+    "actions": 94,
+    "steps": 113,
+    "round": 6,
+    "blocked": null,
+    "scores": [
+      {
+        "factionId": "geodens",
+        "vp": 95
+      },
+      {
+        "factionId": "terrans",
+        "vp": 115
+      },
+      {
+        "factionId": "xenos",
+        "vp": 120
+      }
+    ]
+  },
+  {
+    "difficulty": "쉬움",
+    "faction": "bal_taks",
+    "seed": 41,
+    "complete": true,
+    "seconds": 6.162,
+    "actions": 97,
+    "steps": 116,
+    "round": 6,
+    "blocked": null,
+    "scores": [
+      {
+        "factionId": "bal_taks",
+        "vp": 94
+      },
+      {
+        "factionId": "terrans",
+        "vp": 64
+      },
+      {
+        "factionId": "xenos",
+        "vp": 89
+      }
+    ]
+  },
+  {
+    "difficulty": "보통",
+    "faction": "bal_taks",
+    "seed": 83,
+    "complete": true,
+    "seconds": 34.736,
+    "actions": 94,
+    "steps": 113,
+    "round": 6,
+    "blocked": null,
+    "scores": [
+      {
+        "factionId": "bal_taks",
+        "vp": 99
+      },
+      {
+        "factionId": "terrans",
+        "vp": 111
+      },
+      {
+        "factionId": "xenos",
+        "vp": 136
+      }
+    ]
+  },
+  {
+    "difficulty": "쉬움",
+    "faction": "firaks",
+    "seed": 41,
+    "complete": true,
+    "seconds": 7.967,
+    "actions": 111,
+    "steps": 130,
+    "round": 6,
+    "blocked": null,
+    "scores": [
+      {
+        "factionId": "firaks",
+        "vp": 92
+      },
+      {
+        "factionId": "terrans",
+        "vp": 73
+      },
+      {
+        "factionId": "xenos",
+        "vp": 67
+      }
+    ]
+  },
+  {
+    "difficulty": "보통",
+    "faction": "firaks",
+    "seed": 83,
+    "complete": true,
+    "seconds": 47.606,
+    "actions": 89,
+    "steps": 108,
+    "round": 6,
+    "blocked": null,
+    "scores": [
+      {
+        "factionId": "firaks",
+        "vp": 106
+      },
+      {
+        "factionId": "terrans",
+        "vp": 112
+      },
+      {
+        "factionId": "xenos",
+        "vp": 127
+      }
+    ]
+  },
+  {
+    "difficulty": "쉬움",
+    "faction": "bescods",
+    "seed": 41,
+    "complete": true,
+    "seconds": 10.443,
+    "actions": 109,
+    "steps": 128,
+    "round": 6,
+    "blocked": null,
+    "scores": [
+      {
+        "factionId": "bescods",
+        "vp": 102
+      },
+      {
+        "factionId": "terrans",
+        "vp": 74
+      },
+      {
+        "factionId": "xenos",
+        "vp": 64
+      }
+    ]
+  },
+  {
+    "difficulty": "보통",
+    "faction": "bescods",
+    "seed": 83,
+    "complete": true,
+    "seconds": 52.35,
+    "actions": 105,
+    "steps": 124,
+    "round": 6,
+    "blocked": null,
+    "scores": [
+      {
+        "factionId": "bescods",
+        "vp": 126
+      },
+      {
+        "factionId": "terrans",
+        "vp": 112
+      },
+      {
+        "factionId": "xenos",
+        "vp": 117
+      }
+    ]
+  },
+  {
+    "difficulty": "쉬움",
+    "faction": "nevlas",
+    "seed": 41,
+    "complete": true,
+    "seconds": 7.206,
+    "actions": 91,
+    "steps": 110,
+    "round": 6,
+    "blocked": null,
+    "scores": [
+      {
+        "factionId": "nevlas",
+        "vp": 73
+      },
+      {
+        "factionId": "terrans",
+        "vp": 81
+      },
+      {
+        "factionId": "xenos",
+        "vp": 84
+      }
+    ]
+  },
+  {
+    "difficulty": "보통",
+    "faction": "nevlas",
+    "seed": 83,
+    "complete": true,
+    "seconds": 38.585,
+    "actions": 93,
+    "steps": 112,
+    "round": 6,
+    "blocked": null,
+    "scores": [
+      {
+        "factionId": "nevlas",
+        "vp": 99
+      },
+      {
+        "factionId": "terrans",
+        "vp": 119
+      },
+      {
+        "factionId": "xenos",
+        "vp": 112
+      }
+    ]
+  },
+  {
+    "difficulty": "쉬움",
+    "faction": "itars",
+    "seed": 41,
+    "complete": true,
+    "seconds": 8.803,
+    "actions": 100,
+    "steps": 119,
+    "round": 6,
+    "blocked": null,
+    "scores": [
+      {
+        "factionId": "itars",
+        "vp": 90
+      },
+      {
+        "factionId": "terrans",
+        "vp": 86
+      },
+      {
+        "factionId": "xenos",
+        "vp": 77
+      }
+    ]
+  },
+  {
+    "difficulty": "보통",
+    "faction": "itars",
+    "seed": 83,
+    "complete": true,
+    "seconds": 33.35,
+    "actions": 89,
+    "steps": 108,
+    "round": 6,
+    "blocked": null,
+    "scores": [
+      {
+        "factionId": "itars",
+        "vp": 99
+      },
+      {
+        "factionId": "terrans",
+        "vp": 102
+      },
+      {
+        "factionId": "xenos",
+        "vp": 103
+      }
+    ]
+  },
+  {
+    "difficulty": "쉬움",
+    "faction": "tinkeroids",
+    "seed": 41,
+    "complete": true,
+    "seconds": 8.288,
+    "actions": 105,
+    "steps": 124,
+    "round": 6,
+    "blocked": null,
+    "scores": [
+      {
+        "factionId": "tinkeroids",
+        "vp": 77
+      },
+      {
+        "factionId": "terrans",
+        "vp": 74
+      },
+      {
+        "factionId": "xenos",
+        "vp": 66
+      }
+    ]
+  },
+  {
+    "difficulty": "보통",
+    "faction": "tinkeroids",
+    "seed": 83,
+    "complete": true,
+    "seconds": 54.821,
+    "actions": 93,
+    "steps": 112,
+    "round": 6,
+    "blocked": null,
+    "scores": [
+      {
+        "factionId": "tinkeroids",
+        "vp": 122
+      },
+      {
+        "factionId": "terrans",
+        "vp": 110
+      },
+      {
+        "factionId": "xenos",
+        "vp": 148
+      }
+    ]
+  },
+  {
+    "difficulty": "쉬움",
+    "faction": "darkanians",
+    "seed": 41,
+    "complete": true,
+    "seconds": 6.983,
+    "actions": 89,
+    "steps": 108,
+    "round": 6,
+    "blocked": null,
+    "scores": [
+      {
+        "factionId": "darkanians",
+        "vp": 76
+      },
+      {
+        "factionId": "terrans",
+        "vp": 67
+      },
+      {
+        "factionId": "xenos",
+        "vp": 69
+      }
+    ]
+  },
+  {
+    "difficulty": "보통",
+    "faction": "darkanians",
+    "seed": 83,
+    "complete": true,
+    "seconds": 33.327,
+    "actions": 83,
+    "steps": 102,
+    "round": 6,
+    "blocked": null,
+    "scores": [
+      {
+        "factionId": "darkanians",
+        "vp": 89
+      },
+      {
+        "factionId": "terrans",
+        "vp": 118
+      },
+      {
+        "factionId": "xenos",
+        "vp": 107
+      }
+    ]
+  },
+  {
+    "difficulty": "쉬움",
+    "faction": "moweyds",
+    "seed": 41,
+    "complete": true,
+    "seconds": 6.625,
+    "actions": 90,
+    "steps": 109,
+    "round": 6,
+    "blocked": null,
+    "scores": [
+      {
+        "factionId": "moweyds",
+        "vp": 67
+      },
+      {
+        "factionId": "terrans",
+        "vp": 97
+      },
+      {
+        "factionId": "xenos",
+        "vp": 71
+      }
+    ]
+  },
+  {
+    "difficulty": "보통",
+    "faction": "moweyds",
+    "seed": 83,
+    "complete": true,
+    "seconds": 53.695,
+    "actions": 90,
+    "steps": 109,
+    "round": 6,
+    "blocked": null,
+    "scores": [
+      {
+        "factionId": "moweyds",
+        "vp": 111
+      },
+      {
+        "factionId": "terrans",
+        "vp": 114
+      },
+      {
+        "factionId": "xenos",
+        "vp": 113
+      }
+    ]
+  },
+  {
+    "difficulty": "쉬움",
+    "faction": "space_giants",
+    "seed": 41,
+    "complete": true,
+    "seconds": 7.44,
+    "actions": 97,
+    "steps": 116,
+    "round": 6,
+    "blocked": null,
+    "scores": [
+      {
+        "factionId": "space_giants",
+        "vp": 78
+      },
+      {
+        "factionId": "terrans",
+        "vp": 88
+      },
+      {
+        "factionId": "xenos",
+        "vp": 78
+      }
+    ]
+  },
+  {
+    "difficulty": "보통",
+    "faction": "space_giants",
+    "seed": 83,
+    "complete": true,
+    "seconds": 40.202,
+    "actions": 91,
+    "steps": 110,
+    "round": 6,
+    "blocked": null,
+    "scores": [
+      {
+        "factionId": "space_giants",
+        "vp": 104
+      },
+      {
+        "factionId": "terrans",
+        "vp": 115
+      },
+      {
+        "factionId": "xenos",
+        "vp": 121
+      }
+    ]
+  }
+]
