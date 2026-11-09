@@ -1,0 +1,51 @@
+[
+  {
+    "file": "tests/status-icons.cjs",
+    "args": [],
+    "code": 0,
+    "stdout": "PASS: 원본 PNG 12종, 자동 추첨 버튼, 실제 숫자·연구 0/5단계·파워 0/12개·가이아·두뇌석, 과거 기록 표시, 상태 무변경·저장 키 유지\n",
+    "stderr": ""
+  },
+  {
+    "file": "tests/table-flow.cjs",
+    "args": [],
+    "code": 0,
+    "stdout": "단일 HTML 실행·교환 안내·완료 버튼 1개·복합 실행·자유행동 스냅샷·한 번 되돌리기·자동 저장 통과\n실행 행동 유지·내부 빌드 안내 제거 통과\n이전 버전 자동 저장 상태 불러오기 통과\n",
+    "stderr": ""
+  },
+  {
+    "file": "tests/action-context.cjs",
+    "args": [],
+    "code": 0,
+    "stdout": "PASS: 건설·특수 양쪽 팅커링 노출, 동일 목적지 묶음, 실제 실행·비용·라운드 1회 소비\nPASS: 광산→교역소 건물 전후, 연구 단계 상승, 실제 패시브 충전·승점 감소 및 기록\nPASS: 기록 확장 후 되돌리기\nPASS: 파워 태우기 한글·실제 이미지 경로 및 원본 건물 아이콘\nPASS: 숫자 포함 내부 ID 한글화, 후속 행동 카드 실행, 행성 필터 해제·합법적인 건설 생략 및 다음 차례\nPASS: 첫 부스터 3종 그림·이름·독립 선택 및 패스 부스터 교체\nPASS: 하이브 위치 목록 1개·지도 직접 선택·전체 네모 표시 제거·선택 전 실행 불가·실제 설치/비용/1회 제한·되돌리기\nPASS: 네블라 의회 전후·공용4파워=2토큰·자유4파워=2토큰·홀수 자유행동 합산 3종·공용 홀수 낭비·가이아 전환 1토큰·표시 토큰 수\nPASS: 연방 토큰 중복 묶음·실제 남은 장수·1장만 획득·재보상 1회·함선별 공급처 보존\nPASS: 네블라 연구소 0~3개=0~6충전·잘못된 지식 수입 제거·의회 4충전+토큰1·수입 단계/기록·저장 불러오기·아카데미 전환·다른 종족 유지\nPASS: 수입 최적 순서·토큰 먼저/충전 먼저/중간 수령·4충전 분할 금지·두뇌석·160개 전수 비교·실제 수입/기록·반복 계산\nPASS: 보정 후 대기 충전 갱신·최고 의회3/승점2·실제 3충전/2점 차감·충전 용량/승점 제한·내장 원본 아이콘·사람/AI/지도/기록 함선 이름\nPASS: 연방 전 버릴 III토큰만 자원 교환·4위성/잔여III1 유지·불필요한 교환/자원 넘침 제외·공용7칸·테라포밍은 건설로 이동·선택만으로 비용 미소모\nPASS: 하이브 아카데미 실제 건설→정보 큐브 특수행동·원본 건물 표시·실제 QIC+1/차례 진행·라운드1회/다음 라운드 재사용·지식형 제외·기존 저장 메타데이터 인식\nPASS: 파워 충분해도 건설 자원 부족이면 실제 부족량 표시·광산 재고 없음·진짜 파워 부족 구분\nPASS: 종료 전용 결과·우승/공동 우승·3인 계산식 합계·목표2개/연구6개·자원 버림·공동순위 배분식·플레이어 전환 무변경·기존 완료게임 중복가산 없음\n",
+    "stderr": ""
+  },
+  {
+    "file": "tests/analytics.cjs",
+    "args": [],
+    "code": 0,
+    "stdout": "PASS: real start/import/scoring handlers; refresh/render/undo dedup; legacy/finished/in-progress imports; private payload allowlist; blocked storage/tag/adapter; winner screen\n",
+    "stderr": "지원하는 게임 상태 파일이 아닙니다.\n"
+  },
+  {
+    "file": "tests/play-ui.cjs",
+    "args": [],
+    "code": 0,
+    "stdout": "PASS: repeat quantity UI/preview, atomic execution/log/undo, caps, stale input, Itars/Taklons/Nevlas, literal overview names, colored AI buildings, booster layout rules, Taklons token timing buttons\n",
+    "stderr": "현재 자원으로 선택한 횟수를 실행할 수 없습니다. 횟수를 다시 선택하세요.\n"
+  },
+  {
+    "file": "tests/embedded-images.cjs",
+    "args": [],
+    "code": 0,
+    "stdout": "PASS: all 153 embedded images, 130 visual assets/crops and 30 tile images exactly match the known-good source\n",
+    "stderr": ""
+  },
+  {
+    "file": "tests/faction-rules.cjs",
+    "args": [],
+    "code": 0,
+    "stdout": "{\n  \"total\": 176,\n  \"passed\": 176,\n  \"failed\": 0,\n  \"findings\": []\n}\n",
+    "stderr": ""
+  }
+]

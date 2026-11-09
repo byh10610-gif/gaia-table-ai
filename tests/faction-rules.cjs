@@ -148,6 +148,31 @@ for(const f of defs)test(f.id,'최종 정산 합계·연구24점·자원5점·�
  assert.equal(p.resources.vp,40+row.finalBonusVp);const vp=p.resources.vp;
  assert.throws(()=>RP.resolveFinalScoringPhase(s));assert.equal(p.resources.vp,vp);
 });
+for(const timing of ['before','after'])test('taklons','의회 토큰 '+timing+' 미리보기·실제 충전 일치',()=>{
+ const s=fixture('taklons');put(s,'p0','planetary_institute');const p=s.players[0];
+ p.power={bowl1:0,bowl2:1,bowl3:5,gaia:0,brainstone:'bowl3'};
+ const pc=R('passive_charge'),effect=pc.enqueuePassiveChargeOffers(s,{sourcePlayerId:'p1',target:{q:1,r:0}})[0];
+ const before=JSON.stringify(s),offer=pc.currentPassiveChargeOffer(s,effect,{taklonsGainTiming:timing});
+ assert.equal(JSON.stringify(s),before,'미리보기가 상태를 변경함');assert.equal(offer.maxCharge,timing==='before'?3:1);
+ const out=pc.resolvePassiveChargeChoice(s,effect.id,{taklonsGainTiming:timing});
+ assert.equal(out.charged,offer.maxCharge);assert.equal(out.vpPaid,offer.vpCost);assert.equal(out.gainedPowerToken,1);
+ assert.equal(p.power.bowl1+p.power.bowl2+p.power.bowl3,7);
+});
+test('taklons','토큰 선취득 충전 AI·승점 한도·거절',()=>{
+ const s=fixture('taklons');put(s,'p0','planetary_institute');const p=s.players[0];
+ p.power={bowl1:0,bowl2:0,bowl3:6,gaia:0,brainstone:'bowl3'};p.resources.vp=0;
+ const pc=R('passive_charge'),effect=pc.enqueuePassiveChargeOffers(s,{sourcePlayerId:'p1',target:{q:1,r:0}})[0];assert(effect);
+ const unchanged=JSON.stringify(s);assert.throws(()=>pc.resolvePassiveChargeChoice(s,effect.id,{taklonsGainTiming:'after'}));assert.equal(JSON.stringify(s),unchanged);
+ const declined=clone(s),old=JSON.stringify(declined.players[0]);pc.resolvePassiveChargeChoice(declined,effect.id,{accept:false});assert.equal(JSON.stringify(declined.players[0]),old);
+ const choice=R('ai_pending').chooseAiPendingEffect(s,effect.id);
+ const out=pc.resolvePassiveChargeChoice(s,effect.id,choice.selection);assert.equal(out.charged,1);assert.equal(out.vpPaid,0);assert.equal(out.gainedPowerToken,1);
+});
+test('firaks','기존 저장의 사용 기록이 있어도 같은 라운드 다시 전환',()=>{
+ const s=fixture('firaks');put(s,'p0','planetary_institute');put(s,'p0','research_lab',1,0);
+ s.players[0].factionSpecific.specialActionsUsed={firaks_downgrade_research:1};
+ AA.applyAction(s,action(s,'firaks_downgrade_research'));
+ assert.equal(s.players[0].structuresOnMap.find(x=>x.q===1).structure,'trading_station');
+});
 const failed=results.filter(x=>!x.pass);
 console.log(JSON.stringify({total:results.length,passed:results.length-failed.length,failed:failed.length,findings:failed},null,2));
 fs.writeFileSync(path.join(outDir,'faction-rules-results.json'),JSON.stringify(results,null,2));

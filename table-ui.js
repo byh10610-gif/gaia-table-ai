@@ -373,7 +373,14 @@ function tableRenderPassiveCharge(effect){
  const card=document.createElement('div');card.className='passiveChargeSummary';
  card.innerHTML=`<div class="passiveChargeBasis">${basis?tableBuilding(basis.structure,p):''}<div><b>범위 안의 가장 높은 건물 기준</b><p>건물값 ${effect.offeredPower??0}${basis?' · '+esc(placeName(basis)):''}</p></div></div><div class="passiveChargeNumbers"><b>파워 ${effect.maxCharge} 충전</b><span>승점 ${effect.vpCost}점 지불</span></div>${effect.maxCharge<effect.offeredPower?'<p class="small">현재 파워 그릇과 보유 승점으로 받을 수 있는 충전량입니다.</p>':''}`;
  $('panel').append(card);
- $('panel').append(button('충전 수락',()=>resolveEffect(effect,{accept:true},true),'primary'),button('충전 거절',()=>resolveEffect(effect,{accept:false},true)));
+ if(p.factionId==='taklons'&&(p.structuresOnMap??[]).some(x=>x.structure==='planetary_institute')){
+  for(const timing of ['before','after']){
+   const offer=require('passive_charge').currentPassiveChargeOffer(state,effect,{taklonsGainTiming:timing});
+   if(offer.maxCharge<=0)continue;
+   $('panel').append(button(`토큰 ${timing==='before'?'먼저 받고':'나중에 받기 ·'} 충전 ${offer.maxCharge} · 승점 ${offer.vpCost}점`,()=>resolveEffect(effect,{accept:true,taklonsGainTiming:timing},true),'primary'));
+  }
+ }else $('panel').append(button('충전 수락',()=>resolveEffect(effect,{accept:true},true),'primary'));
+ $('panel').append(button('충전 거절',()=>resolveEffect(effect,{accept:false},true)));
 }
 
 let tableCommonBuildSpace=null;

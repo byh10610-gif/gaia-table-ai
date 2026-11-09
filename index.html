@@ -8659,7 +8659,7 @@ function listFactionSpecialActions({ state, playerId } = {}) {
   }
 
   // 파이락 행성 의회: 연구소를 교역소로 다운그레이드하고 원하는 연구 1칸 진보.
-  if (player.factionId === 'firaks' && piBuilt && !specialActionUsedThisRound(player,'firaks_downgrade_research',roundNumber) &&
+  if (player.factionId === 'firaks' && piBuilt &&
       (player.structuresRemaining?.trading_station ?? 0) > 0) {
     const researchChoices=[];
     for (const area of RESEARCH_AREAS) {
@@ -10505,13 +10505,18 @@ function highestNeighborPower(player,target){
 }
 
 // Pending offers are refreshed from current buildings, power and VP after corrections/load.
-function currentPassiveChargeOffer(state,effect){
+function currentPassiveChargeOffer(state,effect,{taklonsGainTiming,brainstonePriority=false}={}){
   const p=playerById(state,effect.playerId);
   const hasTarget=Number.isFinite(effect.target?.q)&&Number.isFinite(effect.target?.r);
   const highest=hasTarget?highestNeighborPower(p,effect.target):{powerValue:effect.offeredPower??effect.maxCharge??0,source:effect.structure};
-  const maxCharge=Math.min(chargeCapacity(p,highest.powerValue),Math.max(0,(p.resources?.vp??0)+1));
+  const taklonsPI=p.factionId==='taklons' && (p.structuresOnMap??[]).some(x=>x.structure==='planetary_institute');
+  const before={...p,power:{...p.power,bowl1:(p.power.bowl1??0)+1}};
+  const afterCapacity=chargeCapacity(p,highest.powerValue,{brainstonePriority});
+  const beforeCapacity=taklonsPI?chargeCapacity(before,highest.powerValue,{brainstonePriority}):afterCapacity;
+  taklonsGainTiming??=beforeCapacity>afterCapacity?'before':'after';
+  const maxCharge=Math.min(taklonsGainTiming==='before'?beforeCapacity:afterCapacity,Math.max(0,(p.resources?.vp??0)+1));
   const vpCost=Math.max(0,maxCharge-1);
-  return {...effect,structure:highest.source?{q:highest.source.q,r:highest.source.r,structure:highest.source.structure}:null,offeredPower:highest.powerValue,maxCharge,vpCost,note:`승점 ${vpCost}점을 지불하고 파워 ${maxCharge}를 충전할 수 있음`};
+  return {...effect,structure:highest.source?{q:highest.source.q,r:highest.source.r,structure:highest.source.structure}:null,offeredPower:highest.powerValue,maxCharge,vpCost,taklonsGainTiming,note:`승점 ${vpCost}점을 지불하고 파워 ${maxCharge}를 충전할 수 있음`};
 }
 
 function listPassiveChargeOffers(state,{sourcePlayerId,target}={}){
@@ -10523,7 +10528,8 @@ function listPassiveChargeOffers(state,{sourcePlayerId,target}={}){
   for(const p of ordered){
     const highest=highestNeighborPower(p,target);
     if(highest.powerValue<=0) continue;
-    const actualMax=Math.min(chargeCapacity(p,highest.powerValue),Math.max(0,(p.resources?.vp??0)+1));
+    const refreshed=currentPassiveChargeOffer(state,{playerId:p.id,target});
+    const actualMax=refreshed.maxCharge;
     if(actualMax<=0) continue;
     const vpCost=Math.max(0,actualMax-1);
     if((p.resources?.vp??0)<vpCost) continue;
@@ -10534,6 +10540,7 @@ function listPassiveChargeOffers(state,{sourcePlayerId,target}={}){
       structure:{q:highest.source.q,r:highest.source.r,structure:highest.source.structure},
       offeredPower:highest.powerValue,
       maxCharge:actualMax,
+      taklonsGainTiming:refreshed.taklonsGainTiming,
       vpCost
     });
   }
@@ -10559,10 +10566,12 @@ function enqueuePassiveChargeOffers(state,{sourcePlayerId,target,sourceActionTyp
   return created;
 }
 
-function resolvePassiveChargeChoice(state,effectId,{accept=true,brainstonePriority=false,taklonsGainTiming='after'}={}){
+function resolvePassiveChargeChoice(state,effectId,{accept=true,brainstonePriority=false,taklonsGainTiming}={}){
   const idx=(state.pendingEffects ?? []).findIndex(e=>e.id===effectId&&e.type==='passive_charge_choice');
   if(idx<0) throw new Error('해결할 패시브 파워 충전 선택을 찾을 수 없습니다.');
-  const effect=currentPassiveChargeOffer(state,state.pendingEffects[idx]);
+  const effect=currentPassiveChargeOffer(state,state.pendingEffects[idx],{taklonsGainTiming,brainstonePriority});
+  taklonsGainTiming=effect.taklonsGainTiming;
+  if(accept && effect.maxCharge<=0) throw new Error('현재 선택한 순서로 충전할 수 없습니다. 토큰 선취득 또는 충전 거절을 선택하세요.');
   const player=playerById(state,effect.playerId);
   let charged=0,vpPaid=0,gainedPowerToken=0;
   if(accept){
@@ -19187,7 +19196,7 @@ function factionIncomeConfig(player) {
     mineIncomeByBuiltOrdinal: override.mineIncomeByBuiltOrdinal ?? root.default.mineIncomeByBuiltOrdinal,
     tradingStationIncomeByBuiltOrdinal: override.tradingStationIncomeByBuiltOrdinal ?? root.default.tradingStationIncomeByBuiltOrdinal,
     researchLabIncomeByBuiltOrdinal: override.researchLabIncomeByBuiltOrdinal ?? root.default.researchLabIncomeByBuiltOrdinal,
-    planetaryInstitute: override.planetaryInstitute ?? root.default.planetaryInstitute,
+    planetaryInstitute: player.factionId==='lantids'?{chargePower:4}:player.factionId==='space_giants'?{chargePower:6,powerTokensBowl1:1}:override.planetaryInstitute ?? root.default.planetaryInstitute,
     knowledgeAcademy: override.knowledgeAcademy ?? root.default.knowledgeAcademy
   };
 }
@@ -19732,8 +19741,10 @@ function applyBuildMine(state, legal) {
       }
     } else if (state.config?.lostFleet && pc === 3) {
       if (legal.sharedOnOpponent) {
+        const before=player.resources.knowledge??0;
+        player.resources.knowledge=Math.min(15,before+2);
         const charged=chargePower(player,1);
-        factionBonus={source:'란티다 행성 의회 조정',chargePower:charged};
+        factionBonus={source:'란티다 행성 의회 조정',knowledge:player.resources.knowledge-before,chargePower:charged};
       }
     } else if (legal.sharedOnOpponent) {
       const before=player.resources.knowledge??0;
@@ -20039,7 +20050,7 @@ function applyFactionSpecialAction(state, legal, options={}) {
   const roundNumber=state.round?.number??1;
   player.factionSpecific = player.factionSpecific ?? {};
   player.factionSpecific.specialActionsUsed = player.factionSpecific.specialActionsUsed ?? {};
-  if (player.factionSpecific.specialActionsUsed[legal.factionActionId] === roundNumber) throw new Error('이번 라운드에 이미 사용한 종족 특수 행동입니다.');
+  if (legal.factionActionId!=='firaks_downgrade_research' && player.factionSpecific.specialActionsUsed[legal.factionActionId] === roundNumber) throw new Error('이번 라운드에 이미 사용한 종족 특수 행동입니다.');
 
   if (legal.factionActionId === 'moweyds_power_ring') {
     const record=(player.structuresOnMap ?? []).find(s=>s.q===legal.target.q && s.r===legal.target.r);
@@ -20079,7 +20090,6 @@ function applyFactionSpecialAction(state, legal, options={}) {
     lab.structure='trading_station'; hex.structure='trading_station';
     const research=applyResearchAdvanceCore(state,player.id,legal.researchArea,{free:true,federationTokenIndex:options.federationTokenIndex,federationTokenId:options.federationTokenId,source:'firaks_planetary_institute'});
     const liveScoring=resolveLiveScoringEvent(state,player.id,{type:'upgrade_structure',fromStructure:'research_lab',toStructure:'trading_station'});
-    markFactionSpecialUsed(player,legal.factionActionId,roundNumber);
     enqueuePassiveChargeOffers(state,{sourcePlayerId:player.id,target:legal.target,sourceActionType:'firaks_downgrade_research'});
     appendActionLog(state,{playerId:player.id,actionType:legal.type,displayName:legal.displayName,factionActionId:legal.factionActionId,target:legal.target,research,liveScoring});
     return state;
