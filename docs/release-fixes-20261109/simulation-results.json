@@ -1,0 +1,866 @@
+[
+  {
+    "faction": "lantids",
+    "seed": 41,
+    "complete": true,
+    "seconds": 4.855,
+    "actions": 89,
+    "steps": 108,
+    "round": 6,
+    "blocked": null,
+    "scores": [
+      {
+        "factionId": "lantids",
+        "vp": 77
+      },
+      {
+        "factionId": "xenos",
+        "vp": 52
+      },
+      {
+        "factionId": "ambas",
+        "vp": 46
+      }
+    ]
+  },
+  {
+    "faction": "terrans",
+    "seed": 41,
+    "complete": true,
+    "seconds": 6.298,
+    "actions": 98,
+    "steps": 117,
+    "round": 6,
+    "blocked": null,
+    "scores": [
+      {
+        "factionId": "terrans",
+        "vp": 78
+      },
+      {
+        "factionId": "xenos",
+        "vp": 62
+      },
+      {
+        "factionId": "ambas",
+        "vp": 72
+      }
+    ]
+  },
+  {
+    "faction": "xenos",
+    "seed": 41,
+    "complete": true,
+    "seconds": 3.773,
+    "actions": 87,
+    "steps": 106,
+    "round": 6,
+    "blocked": null,
+    "scores": [
+      {
+        "factionId": "xenos",
+        "vp": 42
+      },
+      {
+        "factionId": "terrans",
+        "vp": 74
+      },
+      {
+        "factionId": "ambas",
+        "vp": 87
+      }
+    ]
+  },
+  {
+    "faction": "terrans",
+    "seed": 83,
+    "complete": true,
+    "seconds": 20.032,
+    "actions": 90,
+    "steps": 109,
+    "round": 6,
+    "blocked": null,
+    "scores": [
+      {
+        "factionId": "terrans",
+        "vp": 110
+      },
+      {
+        "factionId": "xenos",
+        "vp": 105
+      },
+      {
+        "factionId": "ambas",
+        "vp": 111
+      }
+    ]
+  },
+  {
+    "faction": "gleens",
+    "seed": 41,
+    "complete": true,
+    "seconds": 4.749,
+    "actions": 93,
+    "steps": 112,
+    "round": 6,
+    "blocked": null,
+    "scores": [
+      {
+        "factionId": "gleens",
+        "vp": 91
+      },
+      {
+        "factionId": "terrans",
+        "vp": 51
+      },
+      {
+        "factionId": "ambas",
+        "vp": 79
+      }
+    ]
+  },
+  {
+    "faction": "xenos",
+    "seed": 83,
+    "complete": true,
+    "seconds": 20.262,
+    "actions": 86,
+    "steps": 105,
+    "round": 6,
+    "blocked": null,
+    "scores": [
+      {
+        "factionId": "xenos",
+        "vp": 109
+      },
+      {
+        "factionId": "terrans",
+        "vp": 104
+      },
+      {
+        "factionId": "ambas",
+        "vp": 98
+      }
+    ]
+  },
+  {
+    "faction": "lantids",
+    "seed": 83,
+    "complete": true,
+    "seconds": 27.441,
+    "actions": 102,
+    "steps": 121,
+    "round": 6,
+    "blocked": null,
+    "scores": [
+      {
+        "factionId": "lantids",
+        "vp": 107
+      },
+      {
+        "factionId": "xenos",
+        "vp": 111
+      },
+      {
+        "factionId": "ambas",
+        "vp": 120
+      }
+    ]
+  },
+  {
+    "faction": "ambas",
+    "seed": 41,
+    "complete": true,
+    "seconds": 6.001,
+    "actions": 105,
+    "steps": 124,
+    "round": 6,
+    "blocked": null,
+    "scores": [
+      {
+        "factionId": "ambas",
+        "vp": 93
+      },
+      {
+        "factionId": "terrans",
+        "vp": 69
+      },
+      {
+        "factionId": "xenos",
+        "vp": 72
+      }
+    ]
+  },
+  {
+    "faction": "taklons",
+    "seed": 41,
+    "complete": true,
+    "seconds": 5.319,
+    "actions": 99,
+    "steps": 118,
+    "round": 6,
+    "blocked": null,
+    "scores": [
+      {
+        "factionId": "taklons",
+        "vp": 71
+      },
+      {
+        "factionId": "terrans",
+        "vp": 85
+      },
+      {
+        "factionId": "xenos",
+        "vp": 80
+      }
+    ]
+  },
+  {
+    "faction": "gleens",
+    "seed": 83,
+    "complete": true,
+    "seconds": 19.606,
+    "actions": 98,
+    "steps": 117,
+    "round": 6,
+    "blocked": null,
+    "scores": [
+      {
+        "factionId": "gleens",
+        "vp": 123
+      },
+      {
+        "factionId": "terrans",
+        "vp": 100
+      },
+      {
+        "factionId": "ambas",
+        "vp": 97
+      }
+    ]
+  },
+  {
+    "faction": "hadsch_hallas",
+    "seed": 41,
+    "complete": true,
+    "seconds": 5.187,
+    "actions": 111,
+    "steps": 130,
+    "round": 6,
+    "blocked": null,
+    "scores": [
+      {
+        "factionId": "hadsch_hallas",
+        "vp": 100
+      },
+      {
+        "factionId": "terrans",
+        "vp": 68
+      },
+      {
+        "factionId": "xenos",
+        "vp": 74
+      }
+    ]
+  },
+  {
+    "faction": "ambas",
+    "seed": 83,
+    "complete": true,
+    "seconds": 25.613,
+    "actions": 84,
+    "steps": 103,
+    "round": 6,
+    "blocked": null,
+    "scores": [
+      {
+        "factionId": "ambas",
+        "vp": 110
+      },
+      {
+        "factionId": "terrans",
+        "vp": 111
+      },
+      {
+        "factionId": "xenos",
+        "vp": 108
+      }
+    ]
+  },
+  {
+    "faction": "taklons",
+    "seed": 83,
+    "complete": true,
+    "seconds": 16.1,
+    "actions": 79,
+    "steps": 98,
+    "round": 6,
+    "blocked": null,
+    "scores": [
+      {
+        "factionId": "taklons",
+        "vp": 72
+      },
+      {
+        "factionId": "terrans",
+        "vp": 120
+      },
+      {
+        "factionId": "xenos",
+        "vp": 109
+      }
+    ]
+  },
+  {
+    "faction": "hadsch_hallas",
+    "seed": 83,
+    "complete": true,
+    "seconds": 18.06,
+    "actions": 92,
+    "steps": 111,
+    "round": 6,
+    "blocked": null,
+    "scores": [
+      {
+        "factionId": "hadsch_hallas",
+        "vp": 104
+      },
+      {
+        "factionId": "terrans",
+        "vp": 118
+      },
+      {
+        "factionId": "xenos",
+        "vp": 113
+      }
+    ]
+  },
+  {
+    "faction": "ivits",
+    "seed": 41,
+    "complete": true,
+    "seconds": 13.216,
+    "actions": 103,
+    "steps": 122,
+    "round": 6,
+    "blocked": null,
+    "scores": [
+      {
+        "factionId": "ivits",
+        "vp": 97
+      },
+      {
+        "factionId": "terrans",
+        "vp": 59
+      },
+      {
+        "factionId": "xenos",
+        "vp": 84
+      }
+    ]
+  },
+  {
+    "faction": "geodens",
+    "seed": 41,
+    "complete": true,
+    "seconds": 4.274,
+    "actions": 96,
+    "steps": 115,
+    "round": 6,
+    "blocked": null,
+    "scores": [
+      {
+        "factionId": "geodens",
+        "vp": 82
+      },
+      {
+        "factionId": "terrans",
+        "vp": 66
+      },
+      {
+        "factionId": "xenos",
+        "vp": 94
+      }
+    ]
+  },
+  {
+    "faction": "bal_taks",
+    "seed": 41,
+    "complete": true,
+    "seconds": 4.346,
+    "actions": 97,
+    "steps": 116,
+    "round": 6,
+    "blocked": null,
+    "scores": [
+      {
+        "factionId": "bal_taks",
+        "vp": 94
+      },
+      {
+        "factionId": "terrans",
+        "vp": 64
+      },
+      {
+        "factionId": "xenos",
+        "vp": 89
+      }
+    ]
+  },
+  {
+    "faction": "geodens",
+    "seed": 83,
+    "complete": true,
+    "seconds": 22.6,
+    "actions": 94,
+    "steps": 113,
+    "round": 6,
+    "blocked": null,
+    "scores": [
+      {
+        "factionId": "geodens",
+        "vp": 95
+      },
+      {
+        "factionId": "terrans",
+        "vp": 115
+      },
+      {
+        "factionId": "xenos",
+        "vp": 120
+      }
+    ]
+  },
+  {
+    "faction": "firaks",
+    "seed": 41,
+    "complete": true,
+    "seconds": 4.821,
+    "actions": 111,
+    "steps": 130,
+    "round": 6,
+    "blocked": null,
+    "scores": [
+      {
+        "factionId": "firaks",
+        "vp": 92
+      },
+      {
+        "factionId": "terrans",
+        "vp": 73
+      },
+      {
+        "factionId": "xenos",
+        "vp": 67
+      }
+    ]
+  },
+  {
+    "faction": "bal_taks",
+    "seed": 83,
+    "complete": true,
+    "seconds": 28.195,
+    "actions": 94,
+    "steps": 113,
+    "round": 6,
+    "blocked": null,
+    "scores": [
+      {
+        "factionId": "bal_taks",
+        "vp": 99
+      },
+      {
+        "factionId": "terrans",
+        "vp": 111
+      },
+      {
+        "factionId": "xenos",
+        "vp": 136
+      }
+    ]
+  },
+  {
+    "faction": "ivits",
+    "seed": 83,
+    "complete": true,
+    "seconds": 50.596,
+    "actions": 107,
+    "steps": 126,
+    "round": 6,
+    "blocked": null,
+    "scores": [
+      {
+        "factionId": "ivits",
+        "vp": 122
+      },
+      {
+        "factionId": "terrans",
+        "vp": 108
+      },
+      {
+        "factionId": "xenos",
+        "vp": 97
+      }
+    ]
+  },
+  {
+    "faction": "bescods",
+    "seed": 41,
+    "complete": true,
+    "seconds": 6.011,
+    "actions": 109,
+    "steps": 128,
+    "round": 6,
+    "blocked": null,
+    "scores": [
+      {
+        "factionId": "bescods",
+        "vp": 102
+      },
+      {
+        "factionId": "terrans",
+        "vp": 74
+      },
+      {
+        "factionId": "xenos",
+        "vp": 64
+      }
+    ]
+  },
+  {
+    "faction": "nevlas",
+    "seed": 41,
+    "complete": true,
+    "seconds": 4.111,
+    "actions": 91,
+    "steps": 110,
+    "round": 6,
+    "blocked": null,
+    "scores": [
+      {
+        "factionId": "nevlas",
+        "vp": 73
+      },
+      {
+        "factionId": "terrans",
+        "vp": 81
+      },
+      {
+        "factionId": "xenos",
+        "vp": 84
+      }
+    ]
+  },
+  {
+    "faction": "firaks",
+    "seed": 83,
+    "complete": true,
+    "seconds": 29.563,
+    "actions": 97,
+    "steps": 116,
+    "round": 6,
+    "blocked": null,
+    "scores": [
+      {
+        "factionId": "firaks",
+        "vp": 106
+      },
+      {
+        "factionId": "terrans",
+        "vp": 109
+      },
+      {
+        "factionId": "xenos",
+        "vp": 131
+      }
+    ]
+  },
+  {
+    "faction": "itars",
+    "seed": 41,
+    "complete": true,
+    "seconds": 5.519,
+    "actions": 100,
+    "steps": 119,
+    "round": 6,
+    "blocked": null,
+    "scores": [
+      {
+        "factionId": "itars",
+        "vp": 90
+      },
+      {
+        "factionId": "terrans",
+        "vp": 86
+      },
+      {
+        "factionId": "xenos",
+        "vp": 77
+      }
+    ]
+  },
+  {
+    "faction": "nevlas",
+    "seed": 83,
+    "complete": true,
+    "seconds": 25.46,
+    "actions": 93,
+    "steps": 112,
+    "round": 6,
+    "blocked": null,
+    "scores": [
+      {
+        "factionId": "nevlas",
+        "vp": 99
+      },
+      {
+        "factionId": "terrans",
+        "vp": 119
+      },
+      {
+        "factionId": "xenos",
+        "vp": 112
+      }
+    ]
+  },
+  {
+    "faction": "bescods",
+    "seed": 83,
+    "complete": true,
+    "seconds": 32.301,
+    "actions": 105,
+    "steps": 124,
+    "round": 6,
+    "blocked": null,
+    "scores": [
+      {
+        "factionId": "bescods",
+        "vp": 126
+      },
+      {
+        "factionId": "terrans",
+        "vp": 112
+      },
+      {
+        "factionId": "xenos",
+        "vp": 117
+      }
+    ]
+  },
+  {
+    "faction": "tinkeroids",
+    "seed": 41,
+    "complete": true,
+    "seconds": 5.778,
+    "actions": 105,
+    "steps": 124,
+    "round": 6,
+    "blocked": null,
+    "scores": [
+      {
+        "factionId": "tinkeroids",
+        "vp": 77
+      },
+      {
+        "factionId": "terrans",
+        "vp": 74
+      },
+      {
+        "factionId": "xenos",
+        "vp": 66
+      }
+    ]
+  },
+  {
+    "faction": "darkanians",
+    "seed": 41,
+    "complete": true,
+    "seconds": 4.353,
+    "actions": 89,
+    "steps": 108,
+    "round": 6,
+    "blocked": null,
+    "scores": [
+      {
+        "factionId": "darkanians",
+        "vp": 76
+      },
+      {
+        "factionId": "terrans",
+        "vp": 67
+      },
+      {
+        "factionId": "xenos",
+        "vp": 69
+      }
+    ]
+  },
+  {
+    "faction": "itars",
+    "seed": 83,
+    "complete": true,
+    "seconds": 21.142,
+    "actions": 89,
+    "steps": 108,
+    "round": 6,
+    "blocked": null,
+    "scores": [
+      {
+        "factionId": "itars",
+        "vp": 99
+      },
+      {
+        "factionId": "terrans",
+        "vp": 102
+      },
+      {
+        "factionId": "xenos",
+        "vp": 103
+      }
+    ]
+  },
+  {
+    "faction": "moweyds",
+    "seed": 41,
+    "complete": true,
+    "seconds": 4.234,
+    "actions": 90,
+    "steps": 109,
+    "round": 6,
+    "blocked": null,
+    "scores": [
+      {
+        "factionId": "moweyds",
+        "vp": 67
+      },
+      {
+        "factionId": "terrans",
+        "vp": 97
+      },
+      {
+        "factionId": "xenos",
+        "vp": 71
+      }
+    ]
+  },
+  {
+    "faction": "tinkeroids",
+    "seed": 83,
+    "complete": true,
+    "seconds": 26.817,
+    "actions": 93,
+    "steps": 112,
+    "round": 6,
+    "blocked": null,
+    "scores": [
+      {
+        "factionId": "tinkeroids",
+        "vp": 122
+      },
+      {
+        "factionId": "terrans",
+        "vp": 110
+      },
+      {
+        "factionId": "xenos",
+        "vp": 148
+      }
+    ]
+  },
+  {
+    "faction": "darkanians",
+    "seed": 83,
+    "complete": true,
+    "seconds": 18.308,
+    "actions": 83,
+    "steps": 102,
+    "round": 6,
+    "blocked": null,
+    "scores": [
+      {
+        "factionId": "darkanians",
+        "vp": 89
+      },
+      {
+        "factionId": "terrans",
+        "vp": 118
+      },
+      {
+        "factionId": "xenos",
+        "vp": 107
+      }
+    ]
+  },
+  {
+    "faction": "space_giants",
+    "seed": 41,
+    "complete": true,
+    "seconds": 5.551,
+    "actions": 97,
+    "steps": 116,
+    "round": 6,
+    "blocked": null,
+    "scores": [
+      {
+        "factionId": "space_giants",
+        "vp": 78
+      },
+      {
+        "factionId": "terrans",
+        "vp": 88
+      },
+      {
+        "factionId": "xenos",
+        "vp": 78
+      }
+    ]
+  },
+  {
+    "faction": "moweyds",
+    "seed": 83,
+    "complete": true,
+    "seconds": 28.403,
+    "actions": 90,
+    "steps": 109,
+    "round": 6,
+    "blocked": null,
+    "scores": [
+      {
+        "factionId": "moweyds",
+        "vp": 111
+      },
+      {
+        "factionId": "terrans",
+        "vp": 114
+      },
+      {
+        "factionId": "xenos",
+        "vp": 113
+      }
+    ]
+  },
+  {
+    "faction": "space_giants",
+    "seed": 83,
+    "complete": true,
+    "seconds": 28.095,
+    "actions": 94,
+    "steps": 113,
+    "round": 6,
+    "blocked": null,
+    "scores": [
+      {
+        "factionId": "space_giants",
+        "vp": 114
+      },
+      {
+        "factionId": "terrans",
+        "vp": 115
+      },
+      {
+        "factionId": "xenos",
+        "vp": 122
+      }
+    ]
+  }
+]

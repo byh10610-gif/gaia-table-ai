@@ -50,4 +50,14 @@ const css=fs.readFileSync('table-ui.css','utf8');assert(css.includes('#actionLis
 fixture();fs.writeFileSync(path.join(os.tmpdir(),'gaia-ui-free-qa.json'),JSON.stringify({state:ctx.window.gaiaTest.state}));
 run("state.round.phase='setup_round_boosters';state.setup={...(state.setup??{}),boosterDraftQueue:['a','b'],boosterDraftIndex:0};state.globalBoards.availableBoosterIds=['booster1','booster2','booster3'];state.players[0].roundBoosterId=null;state.players[1].roundBoosterId=null");
 fs.writeFileSync(path.join(os.tmpdir(),'gaia-ui-booster-qa.json'),JSON.stringify({state:ctx.window.gaiaTest.state}));
-console.log('PASS: repeat quantity UI/preview, atomic execution/log/undo, caps, stale input, Itars/Taklons/Nevlas, literal overview names, colored AI buildings, booster layout rules');
+// Taklons PI shows both token timing choices and resolves the selected option.
+for(const timing of ['before','after']){
+ fixture('taklons');
+ run("state.players[0].structuresOnMap=[{q:0,r:0,structure:'planetary_institute',planet:'swamp'}];state.players[0].power={bowl1:0,bowl2:1,bowl3:5,gaia:0,brainstone:'bowl3'};state.pendingEffects=[];require('passive_charge').enqueuePassiveChargeOffers(state,{sourcePlayerId:'b',target:{q:1,r:0}});renderPending(state.pendingEffects[0])");
+ const label=timing==='before'?'토큰 먼저':'토큰 나중';
+ const choice=ids.panel.children.find(x=>x.textContent?.startsWith(label));assert(choice,label+' 선택 누락');
+ assert(choice.textContent.includes('충전 '+(timing==='before'?3:1)));
+ choice.click();assert.equal(ids.error.hidden,true,ids.error.textContent);
+ assert.equal(run("state.actionLog.find(x=>x.actionType==='passive_charge_resolved').charged"),timing==='before'?3:1);
+}
+console.log('PASS: repeat quantity UI/preview, atomic execution/log/undo, caps, stale input, Itars/Taklons/Nevlas, literal overview names, colored AI buildings, booster layout rules, Taklons token timing buttons');

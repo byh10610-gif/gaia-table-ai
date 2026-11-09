@@ -1,0 +1,868 @@
+[
+  {
+    "faction": "terrans",
+    "name": "2인 시작 배치·재고·탐사선",
+    "pass": true
+  },
+  {
+    "faction": "terrans",
+    "name": "3인 시작 배치·재고·탐사선",
+    "pass": true
+  },
+  {
+    "faction": "terrans",
+    "name": "4인 시작 배치·재고·탐사선",
+    "pass": true
+  },
+  {
+    "faction": "lantids",
+    "name": "2인 시작 배치·재고·탐사선",
+    "pass": true
+  },
+  {
+    "faction": "lantids",
+    "name": "3인 시작 배치·재고·탐사선",
+    "pass": true
+  },
+  {
+    "faction": "lantids",
+    "name": "4인 시작 배치·재고·탐사선",
+    "pass": true
+  },
+  {
+    "faction": "xenos",
+    "name": "2인 시작 배치·재고·탐사선",
+    "pass": true
+  },
+  {
+    "faction": "xenos",
+    "name": "3인 시작 배치·재고·탐사선",
+    "pass": true
+  },
+  {
+    "faction": "xenos",
+    "name": "4인 시작 배치·재고·탐사선",
+    "pass": true
+  },
+  {
+    "faction": "gleens",
+    "name": "2인 시작 배치·재고·탐사선",
+    "pass": true
+  },
+  {
+    "faction": "gleens",
+    "name": "3인 시작 배치·재고·탐사선",
+    "pass": true
+  },
+  {
+    "faction": "gleens",
+    "name": "4인 시작 배치·재고·탐사선",
+    "pass": true
+  },
+  {
+    "faction": "ambas",
+    "name": "2인 시작 배치·재고·탐사선",
+    "pass": true
+  },
+  {
+    "faction": "ambas",
+    "name": "3인 시작 배치·재고·탐사선",
+    "pass": true
+  },
+  {
+    "faction": "ambas",
+    "name": "4인 시작 배치·재고·탐사선",
+    "pass": true
+  },
+  {
+    "faction": "taklons",
+    "name": "2인 시작 배치·재고·탐사선",
+    "pass": true
+  },
+  {
+    "faction": "taklons",
+    "name": "3인 시작 배치·재고·탐사선",
+    "pass": true
+  },
+  {
+    "faction": "taklons",
+    "name": "4인 시작 배치·재고·탐사선",
+    "pass": true
+  },
+  {
+    "faction": "hadsch_hallas",
+    "name": "2인 시작 배치·재고·탐사선",
+    "pass": true
+  },
+  {
+    "faction": "hadsch_hallas",
+    "name": "3인 시작 배치·재고·탐사선",
+    "pass": true
+  },
+  {
+    "faction": "hadsch_hallas",
+    "name": "4인 시작 배치·재고·탐사선",
+    "pass": true
+  },
+  {
+    "faction": "ivits",
+    "name": "2인 시작 배치·재고·탐사선",
+    "pass": true
+  },
+  {
+    "faction": "ivits",
+    "name": "3인 시작 배치·재고·탐사선",
+    "pass": true
+  },
+  {
+    "faction": "ivits",
+    "name": "4인 시작 배치·재고·탐사선",
+    "pass": true
+  },
+  {
+    "faction": "geodens",
+    "name": "2인 시작 배치·재고·탐사선",
+    "pass": true
+  },
+  {
+    "faction": "geodens",
+    "name": "3인 시작 배치·재고·탐사선",
+    "pass": true
+  },
+  {
+    "faction": "geodens",
+    "name": "4인 시작 배치·재고·탐사선",
+    "pass": true
+  },
+  {
+    "faction": "bal_taks",
+    "name": "2인 시작 배치·재고·탐사선",
+    "pass": true
+  },
+  {
+    "faction": "bal_taks",
+    "name": "3인 시작 배치·재고·탐사선",
+    "pass": true
+  },
+  {
+    "faction": "bal_taks",
+    "name": "4인 시작 배치·재고·탐사선",
+    "pass": true
+  },
+  {
+    "faction": "firaks",
+    "name": "2인 시작 배치·재고·탐사선",
+    "pass": true
+  },
+  {
+    "faction": "firaks",
+    "name": "3인 시작 배치·재고·탐사선",
+    "pass": true
+  },
+  {
+    "faction": "firaks",
+    "name": "4인 시작 배치·재고·탐사선",
+    "pass": true
+  },
+  {
+    "faction": "bescods",
+    "name": "2인 시작 배치·재고·탐사선",
+    "pass": true
+  },
+  {
+    "faction": "bescods",
+    "name": "3인 시작 배치·재고·탐사선",
+    "pass": true
+  },
+  {
+    "faction": "bescods",
+    "name": "4인 시작 배치·재고·탐사선",
+    "pass": true
+  },
+  {
+    "faction": "nevlas",
+    "name": "2인 시작 배치·재고·탐사선",
+    "pass": true
+  },
+  {
+    "faction": "nevlas",
+    "name": "3인 시작 배치·재고·탐사선",
+    "pass": true
+  },
+  {
+    "faction": "nevlas",
+    "name": "4인 시작 배치·재고·탐사선",
+    "pass": true
+  },
+  {
+    "faction": "itars",
+    "name": "2인 시작 배치·재고·탐사선",
+    "pass": true
+  },
+  {
+    "faction": "itars",
+    "name": "3인 시작 배치·재고·탐사선",
+    "pass": true
+  },
+  {
+    "faction": "itars",
+    "name": "4인 시작 배치·재고·탐사선",
+    "pass": true
+  },
+  {
+    "faction": "tinkeroids",
+    "name": "2인 시작 배치·재고·탐사선",
+    "pass": true
+  },
+  {
+    "faction": "tinkeroids",
+    "name": "3인 시작 배치·재고·탐사선",
+    "pass": true
+  },
+  {
+    "faction": "tinkeroids",
+    "name": "4인 시작 배치·재고·탐사선",
+    "pass": true
+  },
+  {
+    "faction": "darkanians",
+    "name": "2인 시작 배치·재고·탐사선",
+    "pass": true
+  },
+  {
+    "faction": "darkanians",
+    "name": "3인 시작 배치·재고·탐사선",
+    "pass": true
+  },
+  {
+    "faction": "darkanians",
+    "name": "4인 시작 배치·재고·탐사선",
+    "pass": true
+  },
+  {
+    "faction": "moweyds",
+    "name": "2인 시작 배치·재고·탐사선",
+    "pass": true
+  },
+  {
+    "faction": "moweyds",
+    "name": "3인 시작 배치·재고·탐사선",
+    "pass": true
+  },
+  {
+    "faction": "moweyds",
+    "name": "4인 시작 배치·재고·탐사선",
+    "pass": true
+  },
+  {
+    "faction": "space_giants",
+    "name": "2인 시작 배치·재고·탐사선",
+    "pass": true
+  },
+  {
+    "faction": "space_giants",
+    "name": "3인 시작 배치·재고·탐사선",
+    "pass": true
+  },
+  {
+    "faction": "space_giants",
+    "name": "4인 시작 배치·재고·탐사선",
+    "pass": true
+  },
+  {
+    "faction": "terrans",
+    "name": "수입의 자원 상한·토큰 비음수·JSON 복원",
+    "pass": true
+  },
+  {
+    "faction": "lantids",
+    "name": "수입의 자원 상한·토큰 비음수·JSON 복원",
+    "pass": true
+  },
+  {
+    "faction": "xenos",
+    "name": "수입의 자원 상한·토큰 비음수·JSON 복원",
+    "pass": true
+  },
+  {
+    "faction": "gleens",
+    "name": "수입의 자원 상한·토큰 비음수·JSON 복원",
+    "pass": true
+  },
+  {
+    "faction": "ambas",
+    "name": "수입의 자원 상한·토큰 비음수·JSON 복원",
+    "pass": true
+  },
+  {
+    "faction": "taklons",
+    "name": "수입의 자원 상한·토큰 비음수·JSON 복원",
+    "pass": true
+  },
+  {
+    "faction": "hadsch_hallas",
+    "name": "수입의 자원 상한·토큰 비음수·JSON 복원",
+    "pass": true
+  },
+  {
+    "faction": "ivits",
+    "name": "수입의 자원 상한·토큰 비음수·JSON 복원",
+    "pass": true
+  },
+  {
+    "faction": "geodens",
+    "name": "수입의 자원 상한·토큰 비음수·JSON 복원",
+    "pass": true
+  },
+  {
+    "faction": "bal_taks",
+    "name": "수입의 자원 상한·토큰 비음수·JSON 복원",
+    "pass": true
+  },
+  {
+    "faction": "firaks",
+    "name": "수입의 자원 상한·토큰 비음수·JSON 복원",
+    "pass": true
+  },
+  {
+    "faction": "bescods",
+    "name": "수입의 자원 상한·토큰 비음수·JSON 복원",
+    "pass": true
+  },
+  {
+    "faction": "nevlas",
+    "name": "수입의 자원 상한·토큰 비음수·JSON 복원",
+    "pass": true
+  },
+  {
+    "faction": "itars",
+    "name": "수입의 자원 상한·토큰 비음수·JSON 복원",
+    "pass": true
+  },
+  {
+    "faction": "tinkeroids",
+    "name": "수입의 자원 상한·토큰 비음수·JSON 복원",
+    "pass": true
+  },
+  {
+    "faction": "darkanians",
+    "name": "수입의 자원 상한·토큰 비음수·JSON 복원",
+    "pass": true
+  },
+  {
+    "faction": "moweyds",
+    "name": "수입의 자원 상한·토큰 비음수·JSON 복원",
+    "pass": true
+  },
+  {
+    "faction": "space_giants",
+    "name": "수입의 자원 상한·토큰 비음수·JSON 복원",
+    "pass": true
+  },
+  {
+    "faction": "terrans",
+    "name": "가이아 토큰은 Ⅱ구역으로 복귀",
+    "pass": true
+  },
+  {
+    "faction": "terrans",
+    "name": "의회 가이아 교환과 토큰 복귀를 함께 처리",
+    "pass": true
+  },
+  {
+    "faction": "lantids",
+    "name": "2인 의회 공동 개척 지식·파워",
+    "pass": true
+  },
+  {
+    "faction": "lantids",
+    "name": "3인 의회 공동 개척 지식·파워",
+    "pass": false,
+    "error": "Expected values to be strictly equal:\n\n0 !== 2\n"
+  },
+  {
+    "faction": "lantids",
+    "name": "4인 의회 공동 개척 지식·파워",
+    "pass": true
+  },
+  {
+    "faction": "lantids",
+    "name": "2인 의회 고향 광산에도 지식 2",
+    "pass": true
+  },
+  {
+    "faction": "lantids",
+    "name": "공동 광산 업그레이드 및 행성종류 집계 제외",
+    "pass": true
+  },
+  {
+    "faction": "xenos",
+    "name": "의회 전후 연방 기준 7→6",
+    "pass": true
+  },
+  {
+    "faction": "xenos",
+    "name": "확장 광석1→Ⅲ구역 토큰1",
+    "pass": true
+  },
+  {
+    "faction": "gleens",
+    "name": "큐브 획득을 광석으로, 해금 후 큐브로",
+    "pass": true
+  },
+  {
+    "faction": "gleens",
+    "name": "가이아 입장 광석1·건설2점",
+    "pass": true
+  },
+  {
+    "faction": "gleens",
+    "name": "의회 건설 시 전용 연방토큰 1개",
+    "pass": true
+  },
+  {
+    "faction": "taklons",
+    "name": "두뇌석은 지불3파워·가이아/위성1토큰",
+    "pass": true
+  },
+  {
+    "faction": "taklons",
+    "name": "의회·전부Ⅲ구역에서도 토큰 먼저 받고 충전 가능",
+    "pass": false,
+    "error": "의회 토큰 선취득으로 충전할 수 있는데 제안 누락"
+  },
+  {
+    "faction": "taklons",
+    "name": "의회 토큰 선취득이 충전 한도에 반영",
+    "pass": false,
+    "error": "Expected values to be strictly equal:\n\n1 !== 3\n"
+  },
+  {
+    "faction": "ambas",
+    "name": "의회·광산 교환은 무료·충전 없음·라운드1회",
+    "pass": true
+  },
+  {
+    "faction": "hadsch_hallas",
+    "name": "의회 전 교환 잠김·의회 후 크레딧3→광석1",
+    "pass": true
+  },
+  {
+    "faction": "ivits",
+    "name": "정거장 실제 비용은 사거리 추가 외 무료",
+    "pass": true
+  },
+  {
+    "faction": "ivits",
+    "name": "정거장 사거리 출발점·충전 없음·라운드1회",
+    "pass": true
+  },
+  {
+    "faction": "ivits",
+    "name": "연방 기준은 획득 토큰수, 지형변환5 토큰 제외",
+    "pass": true
+  },
+  {
+    "faction": "geodens",
+    "name": "의회 후 새로운 종류 지식3·같은 종류 재보상 없음",
+    "pass": true
+  },
+  {
+    "faction": "bal_taks",
+    "name": "의회 전 항해 연구 금지·의회 후 허용",
+    "pass": true
+  },
+  {
+    "faction": "bal_taks",
+    "name": "가이아포머→큐브 교환·가이아 단계 반환",
+    "pass": true
+  },
+  {
+    "faction": "firaks",
+    "name": "의회 전 다운그레이드 잠김",
+    "pass": true
+  },
+  {
+    "faction": "firaks",
+    "name": "의회 다운그레이드는 같은 라운드 반복 가능",
+    "pass": false,
+    "error": "다른 연구소가 남아도 두 번째 전환 후보 누락"
+  },
+  {
+    "faction": "bescods",
+    "name": "교역소/연구소 수입과 업그레이드 경로 반전",
+    "pass": true
+  },
+  {
+    "faction": "bescods",
+    "name": "최저 연구만 무료·라운드1회",
+    "pass": true
+  },
+  {
+    "faction": "bescods",
+    "name": "의회 고향 건물 파워+1·다른 종류 제외",
+    "pass": true
+  },
+  {
+    "faction": "nevlas",
+    "name": "의회 전후 토큰당1/2파워·가이아전환1토큰",
+    "pass": true
+  },
+  {
+    "faction": "nevlas",
+    "name": "연구소당2충전·지식수입 없음",
+    "pass": true
+  },
+  {
+    "faction": "itars",
+    "name": "태우기 버리는 토큰은 가이아 구역",
+    "pass": true
+  },
+  {
+    "faction": "itars",
+    "name": "의회 가이아토큰4개당 기술 선택",
+    "pass": true
+  },
+  {
+    "faction": "itars",
+    "name": "지식 아카데미 지식3 수입",
+    "pass": true
+  },
+  {
+    "faction": "tinkeroids",
+    "name": "기본7종 테라포밍 3개는3단계·나머지는1단계",
+    "pass": true
+  },
+  {
+    "faction": "moweyds",
+    "name": "기본7종 테라포밍 3개는3단계·나머지는1단계",
+    "pass": true
+  },
+  {
+    "faction": "tinkeroids",
+    "name": "선택한 팅커링은 라운드1회·종료 시 제거",
+    "pass": true
+  },
+  {
+    "faction": "darkanians",
+    "name": "일반/깊은우주 신규구역 보상·같은 구역 반복 제외",
+    "pass": true
+  },
+  {
+    "faction": "darkanians",
+    "name": "구역 사이 단일 타일은 신규구역 보상 제외",
+    "pass": true
+  },
+  {
+    "faction": "moweyds",
+    "name": "티에프 마스 시작 탐사·탐사선1개 소비",
+    "pass": true
+  },
+  {
+    "faction": "moweyds",
+    "name": "파워링+2·같은행성 중복금지·라운드1회",
+    "pass": true
+  },
+  {
+    "faction": "space_giants",
+    "name": "기본7종2단계·가이아 큐브2",
+    "pass": true
+  },
+  {
+    "faction": "space_giants",
+    "name": "무료2테라포밍·광산비용 유지·라운드1회",
+    "pass": true
+  },
+  {
+    "faction": "space_giants",
+    "name": "의회 즉시 기술타일1개 선택",
+    "pass": true
+  },
+  {
+    "faction": "terrans",
+    "name": "의회 인쇄 수입과 일치",
+    "pass": true
+  },
+  {
+    "faction": "lantids",
+    "name": "의회 인쇄 수입과 일치",
+    "pass": false,
+    "error": "Expected values to be strictly deep-equal:\n+ actual - expected\n\n  {\n    chargePower: 4,\n+   powerTokensBowl1: 1\n  }\n"
+  },
+  {
+    "faction": "xenos",
+    "name": "의회 인쇄 수입과 일치",
+    "pass": true
+  },
+  {
+    "faction": "gleens",
+    "name": "의회 인쇄 수입과 일치",
+    "pass": true
+  },
+  {
+    "faction": "ambas",
+    "name": "의회 인쇄 수입과 일치",
+    "pass": true
+  },
+  {
+    "faction": "taklons",
+    "name": "의회 인쇄 수입과 일치",
+    "pass": true
+  },
+  {
+    "faction": "hadsch_hallas",
+    "name": "의회 인쇄 수입과 일치",
+    "pass": true
+  },
+  {
+    "faction": "ivits",
+    "name": "의회 인쇄 수입과 일치",
+    "pass": true
+  },
+  {
+    "faction": "geodens",
+    "name": "의회 인쇄 수입과 일치",
+    "pass": true
+  },
+  {
+    "faction": "bal_taks",
+    "name": "의회 인쇄 수입과 일치",
+    "pass": true
+  },
+  {
+    "faction": "firaks",
+    "name": "의회 인쇄 수입과 일치",
+    "pass": true
+  },
+  {
+    "faction": "bescods",
+    "name": "의회 인쇄 수입과 일치",
+    "pass": true
+  },
+  {
+    "faction": "nevlas",
+    "name": "의회 인쇄 수입과 일치",
+    "pass": true
+  },
+  {
+    "faction": "itars",
+    "name": "의회 인쇄 수입과 일치",
+    "pass": true
+  },
+  {
+    "faction": "tinkeroids",
+    "name": "의회 인쇄 수입과 일치",
+    "pass": true
+  },
+  {
+    "faction": "darkanians",
+    "name": "의회 인쇄 수입과 일치",
+    "pass": true
+  },
+  {
+    "faction": "moweyds",
+    "name": "의회 인쇄 수입과 일치",
+    "pass": true
+  },
+  {
+    "faction": "space_giants",
+    "name": "의회 인쇄 수입과 일치",
+    "pass": false,
+    "error": "Expected values to be strictly deep-equal:\n+ actual - expected\n\n  {\n+   chargePower: 4,\n-   chargePower: 6,\n    powerTokensBowl1: 1\n  }\n"
+  },
+  {
+    "faction": "terrans",
+    "name": "종족별 탐사 비용과 실제 적용",
+    "pass": true
+  },
+  {
+    "faction": "lantids",
+    "name": "종족별 탐사 비용과 실제 적용",
+    "pass": true
+  },
+  {
+    "faction": "xenos",
+    "name": "종족별 탐사 비용과 실제 적용",
+    "pass": true
+  },
+  {
+    "faction": "gleens",
+    "name": "종족별 탐사 비용과 실제 적용",
+    "pass": true
+  },
+  {
+    "faction": "ambas",
+    "name": "종족별 탐사 비용과 실제 적용",
+    "pass": true
+  },
+  {
+    "faction": "taklons",
+    "name": "종족별 탐사 비용과 실제 적용",
+    "pass": true
+  },
+  {
+    "faction": "hadsch_hallas",
+    "name": "종족별 탐사 비용과 실제 적용",
+    "pass": true
+  },
+  {
+    "faction": "ivits",
+    "name": "종족별 탐사 비용과 실제 적용",
+    "pass": true
+  },
+  {
+    "faction": "geodens",
+    "name": "종족별 탐사 비용과 실제 적용",
+    "pass": true
+  },
+  {
+    "faction": "bal_taks",
+    "name": "종족별 탐사 비용과 실제 적용",
+    "pass": true
+  },
+  {
+    "faction": "firaks",
+    "name": "종족별 탐사 비용과 실제 적용",
+    "pass": true
+  },
+  {
+    "faction": "bescods",
+    "name": "종족별 탐사 비용과 실제 적용",
+    "pass": true
+  },
+  {
+    "faction": "nevlas",
+    "name": "종족별 탐사 비용과 실제 적용",
+    "pass": true
+  },
+  {
+    "faction": "itars",
+    "name": "종족별 탐사 비용과 실제 적용",
+    "pass": true
+  },
+  {
+    "faction": "tinkeroids",
+    "name": "종족별 탐사 비용과 실제 적용",
+    "pass": true
+  },
+  {
+    "faction": "darkanians",
+    "name": "종족별 탐사 비용과 실제 적용",
+    "pass": true
+  },
+  {
+    "faction": "moweyds",
+    "name": "종족별 탐사 비용과 실제 적용",
+    "pass": true
+  },
+  {
+    "faction": "space_giants",
+    "name": "종족별 탐사 비용과 실제 적용",
+    "pass": true
+  },
+  {
+    "faction": "gleens",
+    "name": "확장 사거리+2는 건설·가이아·탐사에 사용 가능",
+    "pass": true
+  },
+  {
+    "faction": "moweyds",
+    "name": "파워링은 인접 패시브 충전값에도+2",
+    "pass": true
+  },
+  {
+    "faction": "itars",
+    "name": "가이아 토큰8개로 기술2장 연속 실제 획득",
+    "pass": true
+  },
+  {
+    "faction": "terrans",
+    "name": "최종 정산 합계·연구24점·자원5점·중복 정산 거부",
+    "pass": true
+  },
+  {
+    "faction": "lantids",
+    "name": "최종 정산 합계·연구24점·자원5점·중복 정산 거부",
+    "pass": true
+  },
+  {
+    "faction": "xenos",
+    "name": "최종 정산 합계·연구24점·자원5점·중복 정산 거부",
+    "pass": true
+  },
+  {
+    "faction": "gleens",
+    "name": "최종 정산 합계·연구24점·자원5점·중복 정산 거부",
+    "pass": true
+  },
+  {
+    "faction": "ambas",
+    "name": "최종 정산 합계·연구24점·자원5점·중복 정산 거부",
+    "pass": true
+  },
+  {
+    "faction": "taklons",
+    "name": "최종 정산 합계·연구24점·자원5점·중복 정산 거부",
+    "pass": true
+  },
+  {
+    "faction": "hadsch_hallas",
+    "name": "최종 정산 합계·연구24점·자원5점·중복 정산 거부",
+    "pass": true
+  },
+  {
+    "faction": "ivits",
+    "name": "최종 정산 합계·연구24점·자원5점·중복 정산 거부",
+    "pass": true
+  },
+  {
+    "faction": "geodens",
+    "name": "최종 정산 합계·연구24점·자원5점·중복 정산 거부",
+    "pass": true
+  },
+  {
+    "faction": "bal_taks",
+    "name": "최종 정산 합계·연구24점·자원5점·중복 정산 거부",
+    "pass": true
+  },
+  {
+    "faction": "firaks",
+    "name": "최종 정산 합계·연구24점·자원5점·중복 정산 거부",
+    "pass": true
+  },
+  {
+    "faction": "bescods",
+    "name": "최종 정산 합계·연구24점·자원5점·중복 정산 거부",
+    "pass": true
+  },
+  {
+    "faction": "nevlas",
+    "name": "최종 정산 합계·연구24점·자원5점·중복 정산 거부",
+    "pass": true
+  },
+  {
+    "faction": "itars",
+    "name": "최종 정산 합계·연구24점·자원5점·중복 정산 거부",
+    "pass": true
+  },
+  {
+    "faction": "tinkeroids",
+    "name": "최종 정산 합계·연구24점·자원5점·중복 정산 거부",
+    "pass": true
+  },
+  {
+    "faction": "darkanians",
+    "name": "최종 정산 합계·연구24점·자원5점·중복 정산 거부",
+    "pass": true
+  },
+  {
+    "faction": "moweyds",
+    "name": "최종 정산 합계·연구24점·자원5점·중복 정산 거부",
+    "pass": true
+  },
+  {
+    "faction": "space_giants",
+    "name": "최종 정산 합계·연구24점·자원5점·중복 정산 거부",
+    "pass": true
+  }
+]
